@@ -112,7 +112,7 @@ if DevMEROe(user_id) == true then
 var = true
 elseif DevMERO(user_id) == true then
 var = true
-elseif DevBotsIs(user_id) == true then
+elseif VIP_DeV(user_id) == true then
 var = true
 elseif Bot(user_id) == true then
 var = true
@@ -2374,7 +2374,7 @@ database:hdel(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood")
 Reply_Status(msg,msg.sender_user_id_,"unlock","⋄️ : تم فتح التكرار")
 return false
 end 
-if text == ("اضف مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBotsIs(msg) then
+if text == ("اضف مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and VIP_DeV(msg) then
 function Function_MERO(extra, result, success)
 database:sadd(bot_id.."DEV:Sudo:T", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⋄︙تم ترقيته مطور ثانوي في البوت")  
@@ -2382,7 +2382,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_MERO, nil)
 return false 
 end
-if text and text:match("^اضف مطور ثانوي @(.*)$") and DevBotsIs(msg) then
+if text and text:match("^اضف مطور ثانوي @(.*)$") and VIP_DeV(msg) then
 local username = text:match("^اضف مطور ثانوي @(.*)$")
 function Function_MERO(extra, result, success)
 if result.id_ then
@@ -2399,13 +2399,13 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
 return false 
 end
-if text and text:match("^اضف مطور ثانوي (%d+)$") and DevBotsIs(msg) then
+if text and text:match("^اضف مطور ثانوي (%d+)$") and VIP_DeV(msg) then
 local userid = text:match("^اضف مطور ثانوي (%d+)$")
 database:sadd(bot_id.."DEV:Sudo:T", userid)
 Reply_Status(msg,userid,"reply","⋄︙تم ترقيته مطور ثانوي في البوت")  
 return false 
 end
-if text == ("حذف مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBotsIs(msg) then
+if text == ("حذف مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and VIP_DeV(msg) then
 function Function_MERO(extra, result, success)
 database:srem(bot_id.."DEV:Sudo:T", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⋄︙تم تنزيله من المطور ثانويين")  
@@ -2413,7 +2413,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_MERO, nil)
 return false 
 end
-if text and text:match("^حذف مطور ثانوي @(.*)$") and DevBotsIs(msg) then
+if text and text:match("^حذف مطور ثانوي @(.*)$") and VIP_DeV(msg) then
 local username = text:match("^حذف مطور ثانوي @(.*)$")
 function Function_MERO(extra, result, success)
 if result.id_ then
@@ -2426,7 +2426,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
 return false
 end  
-if text and text:match("^حذف مطور ثانوي (%d+)$") and DevBotsIs(msg) then
+if text and text:match("^حذف مطور ثانوي (%d+)$") and VIP_DeV(msg) then
 local userid = text:match("^حذف مطور ثانوي (%d+)$")
 database:srem(bot_id.."DEV:Sudo:T", userid)
 Reply_Status(msg,userid,"reply","⋄︙تم تنزيله من المطور ثانويين")  
@@ -2448,7 +2448,7 @@ t = "⋄︙لا يوجد مطورين ثانويين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("مسح الثانويين") and DevBotsIs(msg) then
+if text == ("مسح الثانويين") and VIP_DeV(msg) then
 database:del(bot_id.."DEV:Sudo:T")
 send(msg.chat_id_, msg.id_, "\n⋄︙ تم مسح قائمة المطورين الثانويين  ")
 end
@@ -5867,7 +5867,7 @@ send(msg.chat_id_, msg.id_,"\n⋄︙تم تنزيل الشخص من جميع ا�
 else
 send(msg.chat_id_, msg.id_,"\n⋄︙ليس لديه رتب حتى استطيع تنزيله \n")
 end
-if DevBotsIs(msg) == true then
+if VIP_DeV(msg) == true then
 database:srem(bot_id.."DEV:Sudo:T",result.sender_user_id_)
 database:srem(bot_id.."Sudo:User", result.sender_user_id_)
 database:srem(bot_id.."Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
@@ -5916,7 +5916,7 @@ send(msg.chat_id_, msg.id_,"\n⋄︙تم تنزيل الشخص من جميع ا�
 else
 send(msg.chat_id_, msg.id_,"\n⋄︙ليس لديه رتب حتى استطيع تنزيله \n")
 end
-if DevBotsIs(msg) == true then
+if VIP_DeV(msg) == true then
 database:srem(bot_id.."DEV:Sudo:T",result.id_)
 database:srem(bot_id.."Sudo:User", result.id_)
 database:srem(bot_id.."Basic:Constructor"..msg.chat_id_,result.id_)
@@ -8724,14 +8724,14 @@ t = "⋄︙لا يوجد مطورين ثانويين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text =='الثانويين ⋄' and not DevBotsIs(msg) then
+if text =='الثانويين ⋄' and not VIP_DeV(msg) then
 send(msg.chat_id_, msg.id_,'⋄︙تسرسح .')
 end
-if text =='مسح الثانويين ⋄' and DevBotsIs(msg) then
+if text =='مسح الثانويين ⋄' and VIP_DeV(msg) then
 send(msg.chat_id_, msg.id_,'⋄︙تم بالفعل مسح قائمه المطورين الثانوي .')
 database:del(bot_id.."TSudo:User")
 end
-if text =='مسح الثانويين ⋄' and not DevBotsIs(msg) then
+if text =='مسح الثانويين ⋄' and not VIP_DeV(msg) then
 send(msg.chat_id_, msg.id_,'⋄︙تسرسح .')
 end
 if text and database:get(bot_id..'na:Bots') then
@@ -8833,11 +8833,11 @@ end,nil)
 end
 return false
 end
-if text =='تغيير المطور الاساسي ⋄' and DevBotsIs(msg) then
+if text =='تغيير المطور الاساسي ⋄' and VIP_DeV(msg) then
 send(msg.chat_id_, msg.id_,'⋄︙ارسل ايدي المطور الاساسي الجديد')
 database:set(bot_id..'Ed:DevBots',true) 
 end
-if text =='تغيير المطور الاساسي ⋄' and not DevBotsIs(msg) then
+if text =='تغيير المطور الاساسي ⋄' and not VIP_DeV(msg) then
 send(msg.chat_id_, msg.id_,'⋄︙تسرسح')
 end
 if database:get(bot_id.."Ed:DevBots") then

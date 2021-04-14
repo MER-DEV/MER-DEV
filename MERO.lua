@@ -8546,7 +8546,7 @@ if text == '/start' then
 if DevMERO(msg) then
 local Text = '✫: مرحبا . \n✫:  يمكنك استخدام الاعدادات الخاصه بالبوت الان .'
 local keyboard = {
-{'✫: قناه تحديثات البوت .'},
+{'قناه تحديثات البوت ✫'},
 {'الاحصائيات ✫','تغيير المطور الاساسي ✫'},
 {'تفعيل التواصل ✫','تعطيل التواصل ✫'},
 {'تنظيف الكروبات ✫','تنظيف المشتركين ✫'},
@@ -8556,17 +8556,17 @@ local keyboard = {
 {'اذاعه بالتوجيه ✫','اذاعه بالتوجيه خاص ✫'},
 {'تفعيل المغادره ✫','تعطيل المغادره ✫'},
 {'المطورين ✫','مسح المطورين ✫'},
-{'✫: الثانويين .','✫: مسح الثانويين .'},
+{'الثانويين ✫','مسح الثانويين ✫'},
 {'مسح قائمه العام ✫','قائمه العام ✫'},
 {'حذف كليشه ستارت ✫','ضع كليشه ستارت ✫'},
-{'- تعطيل الاشتراك الاجباري ✫ .'},
-{'- تغير الاشتراك ✫ .','حذف رساله الاشتراك ✫ .'},
-{'- تفعيل الاشتراك الاجباري ✫ .'},
-{'- تعين قناة الاشتراك ✫ .','- تغير رساله الاشتراك ✫ .'},
-{'- الاشتراك الاجباري ✫ .'},
+{'تعطيل الاشتراك الاجباري ✫'},
+{'تغير الاشتراك ✫','حذف رساله الاشتراك ✫'},
+{'تفعيل الاشتراك الاجباري ✫'},
+{'تعين قناة الاشتراك ✫','تغير رساله الاشتراك ✫'},
+{'الاشتراك الاجباري ✫'},
 {'تحديث السورس ✫','تحديث الملفات ✫'},
 {'تفعيل النسخه التلقائيه ✫','جلب النسخه ✫','تعطيل النسخه التلقائيه ✫'},
-{'✫: تغيير اسم البوت .'},
+{'تغيير اسم البوت ✫'},
 {'الغاء ✫'}
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
@@ -8731,7 +8731,7 @@ database:set(bot_id.."AutoFile",true)
 send(msg.chat_id_, msg.id_,"✫: تم تعطيل النسخه الاحتياطيه التلقائيه .") 
 return false  
 end
-if text =='✫: الثانويين .' and DevMERO(msg) then
+if text =='الثانويين ✫' and DevMERO(msg) then
 local list = database:smembers(bot_id.."TSudo:User")
 t = "\n✫:  قائمة مطورين الثانويين للبوت \n — — — — — — — — — \n"
 for k,v in pairs(list) do
@@ -8747,18 +8747,18 @@ t = "✫: لا يوجد مطورين ثانويين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text =='✫: الثانويين .' and not DevBotsIs(msg) then
+if text =='الثانويين ✫' and not DevBotsIs(msg) then
 send(msg.chat_id_, msg.id_,'✫: تسرسح .')
 end
-if text =='✫: مسح الثانويين .' and DevBotsIs(msg) then
+if text =='مسح الثانويين ✫' and DevBotsIs(msg) then
 send(msg.chat_id_, msg.id_,'✫: تم بالفعل مسح قائمه المطورين الثانوي .')
 database:del(bot_id.."TSudo:User")
 end
-if text =='✫: مسح الثانويين .' and not DevBotsIs(msg) then
+if text =='مسح الثانويين ✫' and not DevBotsIs(msg) then
 send(msg.chat_id_, msg.id_,'✫: تسرسح .')
 end
 if text and database:get(bot_id..'na:Bots') then
-if text == '✫: الغاء .' then   
+if text == 'الغاء ✫' then   
 send(msg.chat_id_, msg.id_,"✫: تم الغاء حفظ اسم البوت") 
 database:del(bot_id..'na:Bots') 
 return false
@@ -8768,11 +8768,11 @@ send(msg.chat_id_, msg.id_,'✫: تم حفظ اسم البوت')
 database:del(bot_id..'na:Bots') 
 return false
 end
-if text == '✫: تغيير اسم البوت .' then
+if text == 'تغيير اسم البوت ✫' then
 database:set(bot_id..'na:Bots',true) 
 send(msg.chat_id_, msg.id_,'✫: ارسل اسم البوت الان . ') 
 end
-if text == '✫: قناه تحديثات البوت .' then  
+if text == 'قناه تحديثات البوت ✫' then  
 send(msg.chat_id_, msg.id_,'✫: [تحديثات البوت](t.me/YYYKU) .\n✫: [قناه السورس](t.me/YYYDR) .')
 return false  
 end
@@ -8966,27 +8966,27 @@ if text == 'حذف كليشه ستارت ✫' then
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,'✫: تم حذف كليشه ستارت') 
 end
-if text and text:match("^- تغير الاشتراك ✫ .$") and DevMERO(msg) then  
+if text and text:match("^تغير الاشتراك ✫$") and DevMERO(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '✫: حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text and text:match("^- تغير رساله الاشتراك ✫ .$") and DevMERO(msg) then  
+if text and text:match("^تغير رساله الاشتراك ✫$") and DevMERO(msg) then  
 database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '✫: حسنآ ارسل لي النص الذي تريده')
 return false  
 end
-if text == "حذف رساله الاشتراك ✫ ." and DevMERO(msg) then  
+if text == "حذف رساله الاشتراك ✫" and DevMERO(msg) then  
 database:del(bot_id..'text:ch:user')
 send(msg.chat_id_, msg.id_, "✫: تم مسح رساله الاشتراك ")
 return false  
 end
-if text and text:match("^- تعين قناة الاشتراك ✫ .$") and DevMERO(msg) then  
+if text and text:match("^تعين قناة الاشتراك ✫$") and DevMERO(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '✫: حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text == "- تفعيل الاشتراك الاجباري ✫ ." and DevMERO(msg) then  
+if text == "تفعيل الاشتراك الاجباري ✫" and DevMERO(msg) then  
 if database:get(bot_id..'add:ch:id') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_,"✫: الاشتراك الاجباري مفعل \n✫: على القناة -› ["..addchusername.."]")
@@ -8996,13 +8996,13 @@ send(msg.chat_id_, msg.id_,"✫: اهلا عزيزي المطور \n✫: ارس�
 end
 return false  
 end
-if text == "- تعطيل الاشتراك الاجباري ✫ ." and DevMERO(msg) then  
+if text == "تعطيل الاشتراك الاجباري ✫" and DevMERO(msg) then  
 database:del(bot_id..'add:ch:id')
 database:del(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_, "✫: تم تعطيل الاشتراك الاجباري ")
 return false  
 end
-if text == "- الاشتراك الاجباري ✫ ." and DevMERO(msg) then  
+if text == "الاشتراك الاجباري ✫" and DevMERO(msg) then  
 if database:get(bot_id..'add:ch:username') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_, "✫: تم تفعيل الاشتراك الاجباري \n✫: على القناة -› ["..addchusername.."]")

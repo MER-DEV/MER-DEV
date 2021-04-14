@@ -46,7 +46,7 @@ return h_Sudo
 end 
 function DevMEROe(msg) 
 local hash = database:sismember(bot_id.."DEV:Sudo:T", msg.sender_user_id_) 
-if hash or VIP_DeV(msg) then  
+if hash or SudoBot(msg) then  
 return true  
 else  
 return false  

@@ -8309,7 +8309,7 @@ dofile("MERO.lua")
 send(msg.chat_id_, msg.id_, "- تم التحديث")
 end
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-Text = "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ sᴏᴜʀᴄᴇ ᴍᴇʀᴏ\n\n[-  ʙᴏʏᴋᴀ ᴄʜᴀɴɴᴇʟ  .](http://t.me/YYYDR)\n\n[-  ɪɴғᴏ sᴏᴜʀᴄᴇ .](http://t.me/YYYKU)\n\n[-  ʙᴏʏᴋᴀ ᴅᴇᴠᴇʟᴏᴘᴇʀ  .](http://t.me/FEEEM)\n\n[-  ʙᴏᴛ ʙᴏʏᴋᴀ .](http://t.me/FEEEM)"
+Text = "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ sᴏᴜʀᴄᴇ ᴍᴇʀᴏ\n\n[-  ᴍᴇʀᴏ ᴄʜᴀɴɴᴇʟ  .](http://t.me/YYYDR)\n\n[-  ɪɴғᴏ sᴏᴜʀᴄᴇ .](http://t.me/YYYKU)\n\n[-  ᴍᴇʀᴏ ᴅᴇᴠᴇʟᴏᴘᴇʀ  .](http://t.me/FEEEM)\n\n[-  ʙᴏᴛ ᴍᴇʀᴏ .](http://t.me/FEEEM)"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '- ᴍᴇʀᴏ sᴏᴜʀᴄᴇ .',url="t.me/YYYDR"}},
@@ -8536,27 +8536,27 @@ if DevMERO(msg) then
 local Text = '- مرحبا . \n-  يمكنك استخدام الاعدادات الخاصه بالبوت الان .'
 local keyboard = {
 {'- قناه تحديثات البوت .'},
-{'الاحصائيات -','تغيير المطور الاساسي -'},
-{'تفعيل التواصل -','تعطيل التواصل -'},
-{'تنظيف الكروبات -','تنظيف المشتركين -'},
-{'تفعيل البوت الخدمي -','تعطيل البوت الخدمي -'},
-{'تفعيل الاذاعه -','تعطيل الاذاعه -'},
-{'اذاعه خاص -','اذاعه -'},
-{'اذاعه بالتوجيه -','اذاعه بالتوجيه خاص -'},
-{'تفعيل المغادره -','تعطيل المغادره -'},
-{'المطورين -','مسح المطورين -'},
+{'- الاحصائيات .','- تغيير المطور الاساسي .'},
+{'- تفعيل التواصل .','- تعطيل التواصل .'},
+{'- تنظيف الكروبات .','- تنظيف المشتركين .'},
+{'- تفعيل البوت الخدمي .','- تعطيل البوت الخدمي .'},
+{'- تفعيل الاذاعه .','- تعطيل الاذاعه .'},
+{'- اذاعه خاص .,'- اذاعه .'},
+{'- اذاعه بالتوجيه .','- اذاعه بالتوجيه خاص .'},
+{'- تفعيل المغادره .','- تفعيل المغادره .'},
+{'- المطورين .','- مسح المطورين .'},
 {'- الثانويين .','- مسح الثانويين .'},
-{'مسح قائمه العام -','قائمه العام -'},
-{'حذف كليشه ستارت -','ضع كليشه ستارت -'},
-{'- تعطيل الاشتراك الاجباري - .'},
-{'- تغير الاشتراك - .','حذف رساله الاشتراك - .'},
-{'- تفعيل الاشتراك الاجباري - .'},
-{'- تعين قناة الاشتراك - .','- تغير رساله الاشتراك - .'},
-{'- الاشتراك الاجباري - .'},
-{'تحديث السورس -','تحديث الملفات -'},
-{'تفعيل النسخه التلقائيه -','جلب النسخه -','تعطيل النسخه التلقائيه -'},
+{- مسح قائمه العام .','- قائمه العام .'},
+{'- حذف كليشه ستارت .','- ضع كليشه ستارت .'},
+{'- تعطيل الاشتراك الاجباري .'},
+{'- تغير الاشتراك .','- حذف رساله الاشتراك .'},
+{'- تفعيل الاشتراك الاجباري .'},
+{'- تعين قناة الاشتراك .','- تغير رساله الاشتراك .'},
+{'- الاشتراك الاجباري .'},
+{'- تحديث السورس .','- تحديث الملفات .'},
+{'- تفعيل النسخه التلقائيه .','- جلب النسخه .','- تعطيل النسخه التلقائيه .'},
 {'- تغيير اسم البوت .'},
-{'الغاء -'}
+{'- الغاء .'}
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
 else
@@ -8702,20 +8702,20 @@ end
 sendText(Id_Sudo,Text..'\n'..'-  ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
 end,nil);end,nil);end,nil);end,nil);end 
 if DevMERO(msg) then
-if text == 'تفعيل التواصل -' then  
+if text == '- تفعيل التواصل .' then  
 database:del(bot_id..'Texting:In:Bv') 
 send(msg.chat_id_, msg.id_,'-  تم تفعيل التواصل ') 
 end
-if text == 'تعطيل التواصل -' then  
+if text == '- تعطيل التواصل .' then  
 database:set(bot_id..'Texting:In:Bv',true) 
 send(msg.chat_id_, msg.id_,'-  تم تعطيل التواصل ') 
 end
-if text == 'تفعيل النسخه التلقائيه -' then
+if text == '- تفعيل النسخه التلقائيه .' then
 database:del(bot_id.."AutoFile")
 send(msg.chat_id_, msg.id_,"- تم تفعيل النسخه الاحتياطيه التلقائيه .") 
 return false
 end
-if text == "تعطيل النسخه التلقائيه -" then  
+if text == "- تعطيل النسخه التلقائيه ." then  
 database:set(bot_id.."AutoFile",true) 
 send(msg.chat_id_, msg.id_,"- تم تعطيل النسخه الاحتياطيه التلقائيه .") 
 return false  
@@ -8765,12 +8765,12 @@ if text == '- قناه تحديثات البوت .' then
 send(msg.chat_id_, msg.id_,'- [تحديثات البوت](t.me/YYYKU) .\n- [قناه السورس](t.me/YYYDR) .')
 return false  
 end
-if text =='الاحصائيات -' then
+if text =='- الاحصائيات .' then
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'UsersBot')  
 send(msg.chat_id_, msg.id_,'- احصائيات البوت \n\n- عدد المجموعات *~ '..Groups..'\n- عدد المشتركين ~ '..Users..'*')
 end
-if text == "تنظيف المشتركين -" then
+if text == "- تنظيف المشتركين ." then
 local pv = database:smembers(bot_id..'UsersBot')  
 local sendok = 0
 for i = 1, #pv do
@@ -8796,7 +8796,7 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف الكروبات -" then
+if text == "- تنظيف الكروبات ." then
 local group = database:smembers(bot_id..'Chek:Groups')  
 local w = 0
 local q = 0
@@ -8845,11 +8845,11 @@ end,nil)
 end
 return false
 end
-if text =='تغيير المطور الاساسي -' and DevBotsIs(msg) then
+if text =='- تغيير المطور الاساسي .' and DevBotsIs(msg) then
 send(msg.chat_id_, msg.id_,'- ارسل ايدي المطور الاساسي الجديد')
 database:set(bot_id..'Ed:DevBots',true) 
 end
-if text =='تغيير المطور الاساسي -' and not DevBotsIs(msg) then
+if text =='- تغيير المطور الاساسي .' and not DevBotsIs(msg) then
 send(msg.chat_id_, msg.id_,'- تسرسح')
 end
 if database:get(bot_id.."Ed:DevBots") then
@@ -8858,7 +8858,7 @@ local IdDe = text:match("^(%d+)$")
 send(msg.chat_id_,msg.id_, "- تم تحفظ المعلومات اضغط ( تحديث الملفات - ) للتنفيذ")
 local A = io.open("sudo.lua", 'w')
 A:write([[
-s = "Zkzzz"
+s = "FEEEM"
 
 q = "YYYDR"
 
@@ -8870,15 +8870,15 @@ A:close()
 database:del(bot_id.."Ed:DevBots")
 end
 end
-if text == 'تفعيل البوت الخدمي -' then
+if text == '- تفعيل البوت الخدمي .' then
 database:del(bot_id..'Free:Add:Bots') 
 send(msg.chat_id_, msg.id_,'\n- تم تفعيل البوت الخدمي ') 
 end
-if text == 'تعطيل البوت الخدمي -' then
+if text == '- تعطيل البوت الخدمي .' then
 database:set(bot_id..'Free:Add:Bots',true) 
 send(msg.chat_id_, msg.id_,'\n- تم تعطيل البوت الخدمي') 
 end
-if text=="اذاعه خاص -" and msg.reply_to_message_id_ == 0 then
+if text=="- اذاعه خاص ." and msg.reply_to_message_id_ == 0 then
 if database:get(bot_id.."Status:Bc") and not DevMERO(msg) then 
 send(msg.chat_id_, msg.id_,"- الاذاعه معطله من قبل المطور الاساسي")
 return false
@@ -8888,7 +8888,7 @@ send(msg.chat_id_, msg.id_,"- ارسل لي سواء ~ { ملصق, متحركه,
 return false
 end 
 
-if text=="اذاعه -" and msg.reply_to_message_id_ == 0 then
+if text=="- اذاعه ." and msg.reply_to_message_id_ == 0 then
 if database:get(bot_id.."Status:Bc") and not DevMERO(msg) then 
 send(msg.chat_id_, msg.id_,"- الاذاعه معطله من قبل المطور الاساسي")
 return false
@@ -8897,7 +8897,7 @@ database:setex(bot_id.."Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_,
 send(msg.chat_id_, msg.id_,"- ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n- للخروج ارسل الغاء ") 
 return false
 end  
-if text=="اذاعه بالتوجيه -" and msg.reply_to_message_id_ == 0  then
+if text=="- اذاعه بالتوجيه ." and msg.reply_to_message_id_ == 0  then
 if database:get(bot_id.."Status:Bc") and not DevMERO(msg) then 
 send(msg.chat_id_, msg.id_,"- الاذاعه معطله من قبل المطور الاساسي")
 return false
@@ -8906,7 +8906,7 @@ database:setex(bot_id.."Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_
 send(msg.chat_id_, msg.id_,"- ارسل لي التوجيه الان") 
 return false
 end 
-if text=="اذاعه بالتوجيه خاص -" and msg.reply_to_message_id_ == 0  then
+if text=="- اذاعه بالتوجيه خاص ." and msg.reply_to_message_id_ == 0  then
 if database:get(bot_id.."Status:Bc") and not DevMERO(msg) then 
 send(msg.chat_id_, msg.id_,"- الاذاعه معطله من قبل المطور الاساسي")
 return false
@@ -8915,28 +8915,28 @@ database:setex(bot_id.."Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 6
 send(msg.chat_id_, msg.id_,"- ارسل لي التوجيه الان") 
 return false
 end 
-if text == "تفعيل الاذاعه -" then
+if text == "- تفعيل الاذاعه ." then
 database:del(bot_id.."Status:Bc") 
 send(msg.chat_id_, msg.id_,"\n- تم تفعيل الاذاعه " ) 
 return false
 end 
-if text == "تعطيل الاذاعه -" then
+if text == "- تعطيل الاذاعه ." then
 database:set(bot_id.."Status:Bc",true) 
 send(msg.chat_id_, msg.id_,"\n- تم تعطيل الاذاعه") 
 return false
 end 
-if text == "تفعيل المغادره -" then
+if text == "- تفعيل المغادره ." then
 database:del(bot_id.."Left:Bot"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,"- تم تفعيل مغادرة البوت") 
 return false 
 end
-if text == "تعطيل المغادره -" then
+if text == "- تعطيل المغادره ." then
 database:set(bot_id.."Left:Bot"..msg.chat_id_,true)   
 send(msg.chat_id_, msg.id_, "- تم تعطيل مغادرة البوت") 
 return false 
 end
 if text and database:get(bot_id..'Start:Bots') then
-if text == 'الغاء -' then   
+if text == '- الغاء .' then   
 send(msg.chat_id_, msg.id_,"- تم الغاء حفظ كليشه ستارت") 
 database:del(bot_id..'Start:Bots') 
 return false
@@ -8946,36 +8946,36 @@ send(msg.chat_id_, msg.id_,'- تم حفظ كليشه ستارت')
 database:del(bot_id..'Start:Bots') 
 return false
 end
-if text == 'ضع كليشه ستارت -' then
+if text == '- ضع كليشه ستارت .' then
 database:set(bot_id..'Start:Bots',true) 
 send(msg.chat_id_, msg.id_,'- ارسل لي الكليشه الان') 
 return false
 end
-if text == 'حذف كليشه ستارت -' then
+if text == '- حذف كليشه ستارت .' then
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,'- تم حذف كليشه ستارت') 
 end
-if text and text:match("^- تغير الاشتراك - .$") and DevMERO(msg) then  
+if text and text:match("^- تغير الاشتراك .$") and DevMERO(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '- حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text and text:match("^- تغير رساله الاشتراك - .$") and DevMERO(msg) then  
+if text and text:match("^- تغير رساله الاشتراك .$") and DevMERO(msg) then  
 database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '- حسنآ ارسل لي النص الذي تريده')
 return false  
 end
-if text == "حذف رساله الاشتراك - ." and DevMERO(msg) then  
+if text == "- حذف رساله الاشتراك ." and DevMERO(msg) then  
 database:del(bot_id..'text:ch:user')
 send(msg.chat_id_, msg.id_, "- تم مسح رساله الاشتراك ")
 return false  
 end
-if text and text:match("^- تعين قناة الاشتراك - .$") and DevMERO(msg) then  
+if text and text:match("^- تعين قناة الاشتراك .$") and DevMERO(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '- حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text == "- تفعيل الاشتراك الاجباري - ." and DevMERO(msg) then  
+if text == "- تفعيل الاشتراك الاجباري ." and DevMERO(msg) then  
 if database:get(bot_id..'add:ch:id') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_,"- الاشتراك الاجباري مفعل \n- على القناة -› ["..addchusername.."]")
@@ -8985,13 +8985,13 @@ send(msg.chat_id_, msg.id_,"- اهلا عزيزي المطور \n- ارسل ال
 end
 return false  
 end
-if text == "- تعطيل الاشتراك الاجباري - ." and DevMERO(msg) then  
+if text == "- تعطيل الاشتراك الاجباري ." and DevMERO(msg) then  
 database:del(bot_id..'add:ch:id')
 database:del(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_, "- تم تعطيل الاشتراك الاجباري ")
 return false  
 end
-if text == "- الاشتراك الاجباري - ." and DevMERO(msg) then  
+if text == "- الاشتراك الاجباري ." and DevMERO(msg) then  
 if database:get(bot_id..'add:ch:username') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_, "- تم تفعيل الاشتراك الاجباري \n- على القناة -› ["..addchusername.."]")
@@ -9001,7 +9001,7 @@ end
 return false  
 end
 if database:get(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
-if text and text:match("^الغاء$") then 
+if text and text:match("^- الغاء .$") then 
 send(msg.chat_id_, msg.id_, "- تم الغاء الامر ")
 database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
@@ -9033,7 +9033,7 @@ end
 end,nil)
 end
 if database:get(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
-if text and text:match("^الغاء$") then 
+if text and text:match("^- الغاء .$") then 
 send(msg.chat_id_, msg.id_, "- تم الغاء الامر ")
 database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
@@ -9042,16 +9042,16 @@ local texxt = string.match(text, "(.*)")
 database:set(bot_id..'text:ch:user',texxt)
 send(msg.chat_id_, msg.id_,'- تم تغيير رسالة الاشتراك ')
 end
-if text == ("مسح قائمه العام -") and DevMERO(msg) then
+if text == ("- مسح قائمه العام .") and DevMERO(msg) then
 database:del(bot_id.."GBan:User")
 send(msg.chat_id_, msg.id_, "\n- تم مسح قائمه العام")
 return false
 end
-if text == ("مسح المطورين -") and DevMERO(msg) then
+if text == ("- مسح المطورين .") and DevMERO(msg) then
 database:del(bot_id.."Sudo:User")
 send(msg.chat_id_, msg.id_, "\n-  تم مسح قائمة المطورين  ")
 end
-if text == ("قائمه العام -") and DevMERO(msg) then
+if text == ("- قائمه العام .") and DevMERO(msg) then
 local list = database:smembers(bot_id.."GBan:User")
 t = "\n- قائمة المحظورين عام \n — — — — — — — — — \n"
 for k,v in pairs(list) do
@@ -9068,7 +9068,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("المطورين -") and DevMERO(msg) then
+if text == ("- المطورين .") and DevMERO(msg) then
 local list = database:smembers(bot_id.."Sudo:User")
 t = "\n- قائمة مطورين البوت \n — — — — — — — — — \n"
 for k,v in pairs(list) do
@@ -9084,7 +9084,7 @@ t = "- لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text =='جلب النسخه -' then
+if text =='- جلب النسخه .' then
 local list = database:smembers(bot_id..'Chek:Groups')  
 local memo = database:smembers(bot_id..'UsersBot')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
@@ -9163,7 +9163,7 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File/'..bot_id..'.json', '-  عدد مجموعات التي في البوت { '..#list..'} .\n- عدد المشتركين { '..#memo..' } .')
 end
-if text == "تحديث السورس -" then
+if text == "- تحديث السورس ." then
 send(msg.chat_id_,msg.id_,'- تم التحديث')
 os.execute('rm -rf MERO.lua')
 os.execute('rm -rf start.lua')
@@ -9172,7 +9172,7 @@ os.execute('wget https://raw.githubusercontent.com/MER-DEV/MER-DEV/main/start.lu
 dofile('MERO.lua')  
 return false
 end
-if text == "تحديث الملفات -" then
+if text == "- تحديث الملفات ." then
 dofile("MERO.lua")  
 send(msg.chat_id_, msg.id_, "- تم التحديث")
 end
@@ -9649,36 +9649,36 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
--اوامر حمايه المجموعه
+- اوامر حمايه المجموعه
  — — — — — — — — — 
--قفل/فتح + الاوامر الادناه 
--قفل/فتح + الامر بالتقيد • بالطرد • بالكتم
+- قفل/فتح + الاوامر الادناه 
+- قفل/فتح + الامر بالتقيد • بالطرد • بالكتم
  — — — — — — — — — 
--الروابط
--المعرف
--التاك
--الشارحه
--التعديل
--التثبيت
--المتحركه
--الملفات
--الصور
+- الروابط
+- المعرف
+- التاك
+- الشارحه
+- التعديل
+- التثبيت
+- المتحركه
+- الملفات
+- الصور
 
--الملصقات
--الفيديو
--الانلاين
--الدردشه
--التوجيه
--الاغاني
--الصوت
--الجهات
--الاشعارات
+- الملصقات
+- الفيديو
+- الانلاين
+- الدردشه
+- التوجيه
+- الاغاني
+- الصوت
+- الجهات
+- الاشعارات
 
--الماركداون
--البوتات
--التكرار
--الكلايش
--السيلفي
+- الماركداون
+- البوتات
+- التكرار
+- الكلايش
+- السيلفي
  — — — — — — — — — 
 [- sᴏᴜʀᴄᴇ ᴍᴇʀᴏ](t.me/YYYDR)
 ]]
@@ -9703,61 +9703,61 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
--اوامر الادمنيه
+- اوامر الادمنيه
  — — — — — — — — —  
  - تفعيل/تعطيل الترحيب
  - اضف /مسح صلاحيه
--وضع تكرار + العدد
--رفع/تنزيل مميز
--عدد الكروب
--تاك للكل
+- وضع تكرار + العدد
+- رفع/تنزيل مميز
+- عدد الكروب
+- تاك للكل
  — — — — — — — — —
--كتم
--حظر
--طرد
--منع
--تقيد
+- كتم
+- حظر
+- طرد
+- منع
+- تقيد
  — — — — — — — — —
  - المكتومين
--المحظورين
--المميزين
--الصلاحيات
--قائمه المنع
+- المحظورين
+- المميزين
+- الصلاحيات
+- قائمه المنع
  — — — — — — — — —
--الغاء كتم
--الغاء حظر
--الغاء منع
--الغاء تقيد
+- الغاء كتم
+- الغاء حظر
+- الغاء منع
+- الغاء تقيد
  — — — — — — — — —
--الغاء تثبيت
--الاعدادات
--تثبيت
--الرابط
--القوانين
--الترحيب
--ايدي
--جهاتي
--سحكاتي
--رسائلي
--كشف البوتات
+- الغاء تثبيت
+- الاعدادات
+- تثبيت
+- الرابط
+- القوانين
+- الترحيب
+- ايدي
+- جهاتي
+- سحكاتي
+- رسائلي
+- كشف البوتات
  — — — — — — — — — 
--وضع اسم
--وضع رابط
--وضع صوره
--وضع وصف
--وضع قوانين
--وضع ترحيب
+- وضع اسم
+- وضع رابط
+- وضع صوره
+- وضع وصف
+- وضع قوانين
+- وضع ترحيب
  — — — — — — — — — 
--مسح قائمه المنع
--مسح المحظورين
--مسح المميزين
--مسح المكتومين
--مسح المطرودين
--مسح القوانين
--مسح البوتات
--مسح الصوره
--مسح الصلاحيات
--مسح الرابط
+- مسح قائمه المنع
+- مسح المحظورين
+- مسح المميزين
+- مسح المكتومين
+- مسح المطرودين
+- مسح القوانين
+- مسح البوتات
+- مسح الصوره
+- مسح الصلاحيات
+- مسح الرابط
  — — — — — — — — — 
 [- sᴏᴜʀᴄᴇ ᴍᴇʀᴏ](t.me/YYYDR)
 ]]
@@ -9782,39 +9782,39 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
--اوامر المدير
+- اوامر المدير
 — — — — — — — — — 
--رفع القيود
--كشف القيود
--تنزيل الكل
--رفع ادمن
+- رفع القيود
+- كشف القيود
+- تنزيل الكل
+- رفع ادمن
 - تنزيل ادمن
--رفع الادمنيه
--مسح الادمنيه
--الادمنيه
+- رفع الادمنيه
+- مسح الادمنيه
+- الادمنيه
 - صلاحياته
 - صلاحياتي
--تعين الايدي
--تغير الايدي
--مسح الايدي
--ردود المدير
--اضف رد
--حذف رد
--تنظيف + عدد
+- تعين الايدي
+- تغير الايدي
+- مسح الايدي
+- ردود المدير
+- اضف رد
+- حذف رد
+- تنظيف + عدد
  — — — — — — — — — 
--تفعيل/تعطيل الرفع
--تفعيل/تعطيل الايدي
--تفعيل/تعطيل الابراج
--تفعيل/تعطيل اطردني
--تفعيل/تعطيل الزخرفه
--تفعيل/تعطيل ردود المدير
--تفعيل/تعطيل حساب العمر
--تفعيل/تعطيل ردود المطور
--تفعيل/تعطيل الحظر/الطرد
--تفعيل/تعطيل اللعبه/الالعاب
--تفعيل/تعطيل الايدي بالصوره
--تفعيل/تعطيل اوامر التحشيش
--تفعيل/تعطيل الرابط/جلب الرابط
+- تفعيل/تعطيل الرفع
+- تفعيل/تعطيل الايدي
+- تفعيل/تعطيل الابراج
+- تفعيل/تعطيل اطردني
+- تفعيل/تعطيل الزخرفه
+- تفعيل/تعطيل ردود المدير
+- تفعيل/تعطيل حساب العمر
+- تفعيل/تعطيل ردود المطور
+- تفعيل/تعطيل الحظر/الطرد
+- تفعيل/تعطيل اللعبه/الالعاب
+- تفعيل/تعطيل الايدي بالصوره
+- تفعيل/تعطيل اوامر التحشيش
+- تفعيل/تعطيل الرابط/جلب الرابط
  — — — — — — — — — 
 [- sᴏᴜʀᴄᴇ ᴍᴇʀᴏ](t.me/YYYDR)
 ]]
@@ -9839,25 +9839,25 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
--اوامر المنشئين الاساسين 
+- اوامر المنشئين الاساسين 
  — — — — — — — — — 
--رفع/تنزيل منشئ اساسي
--رفع/تنزيل منشئ
--المنشئين
--مسح المنشئين
--مسح ردود المدير
+- رفع/تنزيل منشئ اساسي
+- رفع/تنزيل منشئ
+- المنشئين
+- مسح المنشئين
+- مسح ردود المدير
  — — — — — — — — — 
--اوامر المنشئين
+- اوامر المنشئين
  — — — — — — — — — 
--رفع/تنزيل مدير
--المدراء
--مسح المدراء
--تعين/مسح الايدي
--اضف/حذف امر
--الاوامر المضافه
--حذف/مسح الاوامر المضافه
--اضف رسائل + العدد بالرد
--اضف مجوهرات + العدد بالرد
+- رفع/تنزيل مدير
+- المدراء
+- مسح المدراء
+- تعين/مسح الايدي
+- اضف/حذف امر
+- الاوامر المضافه
+- حذف/مسح الاوامر المضافه
+- اضف رسائل + العدد بالرد
+- اضف مجوهرات + العدد بالرد
  — — — — — — — — — 
 [- sᴏᴜʀᴄᴇ ᴍᴇʀᴏ](t.me/YYYDR)
 ]]
@@ -9882,52 +9882,52 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
--اوامر المطور الاساسي  
+- اوامر المطور الاساسي  
  — — — — — — — — — 
--تحديث
--الملفات
--المتجر
--حظر عام
--الغاء العام
+- تحديث
+- الملفات
+- المتجر
+- حظر عام
+- الغاء العام
 - الثانويين
 - رفع مطور ثانوي
 - تنزيل مطور ثانوي
--المطورين
--ردود المطور
--اوامر المطور
--اضف رد للكل
--حذف رد للكل
+- المطورين
+- ردود المطور
+- اوامر المطور
+- اضف رد للكل
+- حذف رد للكل
 - مسح الثانويين
--مسح المطورين
--مسح قائمه العام
--تعطيل الاذاعه
--تفعيل الاذاعه
--تعطيل الاذاعه
--تفعيل المغادرة
+- مسح المطورين
+- مسح قائمه العام
+- تعطيل الاذاعه
+- تفعيل الاذاعه
+- تعطيل الاذاعه
+- تفعيل المغادرة
 - تحديث السورس
--مسح ردود المطور
--مسح جميع الملفات
--رفع /تنزيل مطور
--وضع كليشه المطور
--حذف كليشه المطور
--تفعيل البوت الخدمي
--تعطيل البوت الخدمي
--تفعيل ملف + اسم الملف
--تعطيل ملف + اسم الملف
+- مسح ردود المطور
+- مسح جميع الملفات
+-رفع/تنزيل مطور
+- وضع كليشه المطور
+- حذف كليشه المطور
+- تفعيل البوت الخدمي
+- تعطيل البوت الخدمي
+- تفعيل ملف + اسم الملف
+- تعطيل ملف + اسم الملف
 - تعين عدد الاعضاء + العدد
  — — — — — — — — — 
--غادر 
--اذاعه 
--رفع منشئ 
--اذاعه خاص 
--الاحصائيات 
--غادر + الايدي
--تفعيل /تعطيل
--اذاعه بالتوجيه
--اذاعه بالتثبيت 
--المنشئين الاساسين 
--رفع/تنزيل منشئ اساسي
--مسح المنشئين الاساسين
+- غادر 
+- اذاعه 
+- رفع منشئ 
+- اذاعه خاص 
+- الاحصائيات 
+- غادر + الايدي
+- تفعيل /تعطيل
+- اذاعه بالتوجيه
+- اذاعه بالتثبيت 
+- المنشئين الاساسين 
+- رفع/تنزيل منشئ اساسي
+- مسح المنشئين الاساسين
  — — — — — — — — — 
 [- sᴏᴜʀᴄᴇ ᴍᴇʀᴏ](t.me/YYYDR)
 ]]
@@ -9952,11 +9952,11 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
--  1 -› لعرض اوامر الحمايه
--  2 -› لعرض اوامر الادمنيه
--  3 -› لعرض اوامر المدراء
--  4 -› لعرض اوامر المنشئين
--  5 -› لعرض اوامر المطورين
+- 1 -› لعرض اوامر الحمايه
+- 2 -› لعرض اوامر الادمنيه
+- 3 -› لعرض اوامر المدراء
+- 4 -› لعرض اوامر المنشئين
+- 5 -› لعرض اوامر المطورين
 [- sᴏᴜʀᴄᴇ ᴍᴇʀᴏ](t.me/YYYDR)
 ]]
 keyboard = {} 

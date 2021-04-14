@@ -6754,7 +6754,7 @@ local Text= [[
 - `#auto` > تفاعل المستخدم
 - `#stast` > موقع المستخدم 
 - `#edit` > عدد السحكات
-- `#game` > المجوهرات
+- `#game` > النقاط
 - `#AddMem` > عدد الجهات
 - `#Description` > تعليق الصوره
 ]]
@@ -6803,7 +6803,7 @@ local List = {
 ??|- ☆موقعك #stast 🌐 
 🤸‍♂|- ☆جفصاتك #edit  🌬
 🥉|- ☆تفاعلك #auto 🚀
-🏆|- ☆مجوهراتك #game 🕹
+🏆|- ☆نقاطك #game 🕹
 🌏|- ☆اشترك يحلو🌐《 قناة الكروب》
 ]],
 [[
@@ -6906,10 +6906,10 @@ local get_id = get_id:gsub('#game',Num_Games)
 local get_id = get_id:gsub('#photos',Total_Photp) 
 sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,get_id)
 else
-sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'⋄︙'..Description..'\n⋄︙ايديك ↫ '..Id..'\n⋄︙معرفك ↫ '..UserName_User..'\n⋄︙رتبتك ↫ '..Status_Gps..'\n⋄︙رسائلك ↫ '..NumMsg..'\n⋄︙السحكات ↫ '..message_edit..' \n⋄︙تتفاعلك ↫ '..TotalMsg..'\n⋄︙ مجوهراتك ↫ '..Num_Games)
+sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'⋄︙'..Description..'\n⋄︙ايديك ↫ '..Id..'\n⋄︙معرفك ↫ '..UserName_User..'\n⋄︙رتبتك ↫ '..Status_Gps..'\n⋄︙رسائلك ↫ '..NumMsg..'\n⋄︙السحكات ↫ '..message_edit..' \n⋄︙تتفاعلك ↫ '..TotalMsg..'\n⋄︙ نقاطك ↫ '..Num_Games)
 end
 else
-send(msg.chat_id_, msg.id_,'⋄︙ليس لديك صوره \n'..'\n*⋄︙ايديك ↫ '..Id..'\n⋄︙معرفك ↫* ['..UserName_User..']*\n⋄︙رتبتك ↫ '..Status_Gps..'\n⋄︙رسائلك ↫ '..NumMsg..'\n⋄︙السحكات ↫ '..message_edit..' \n⋄︙تتفاعلك ↫ '..TotalMsg..'\n⋄︙ مجوهراتك ↫ '..Num_Games..'*') 
+send(msg.chat_id_, msg.id_,'⋄︙ليس لديك صوره \n'..'\n*⋄︙ايديك ↫ '..Id..'\n⋄︙معرفك ↫* ['..UserName_User..']*\n⋄︙رتبتك ↫ '..Status_Gps..'\n⋄︙رسائلك ↫ '..NumMsg..'\n⋄︙السحكات ↫ '..message_edit..' \n⋄︙تتفاعلك ↫ '..TotalMsg..'\n⋄︙ نقاطك ↫ '..Num_Games..'*') 
 end
 else
 if get_id then
@@ -6925,7 +6925,7 @@ local get_id = get_id:gsub('#game',Num_Games)
 local get_id = get_id:gsub('#photos',Total_Photp) 
 send(msg.chat_id_, msg.id_,'['..get_id..']') 
 else
-send(msg.chat_id_, msg.id_,'\n*⋄︙ايديك ↫ '..Id..'\n⋄︙معرفك ↫* ['..UserName_User..']*\n⋄︙رتبتك ↫ '..Status_Gps..'\n⋄︙رسائلك ↫ '..NumMsg..'\n⋄︙السحكات ↫ '..message_edit..' \n⋄︙تتفاعلك ↫ '..TotalMsg..'\n⋄︙ مجوهراتك ↫ '..Num_Games..'*') 
+send(msg.chat_id_, msg.id_,'\n*⋄︙ايديك ↫ '..Id..'\n⋄︙معرفك ↫* ['..UserName_User..']*\n⋄︙رتبتك ↫ '..Status_Gps..'\n⋄︙رسائلك ↫ '..NumMsg..'\n⋄︙السحكات ↫ '..message_edit..' \n⋄︙تتفاعلك ↫ '..TotalMsg..'\n⋄︙ نقاطك ↫ '..Num_Games..'*') 
 end
 end
 end,nil)   
@@ -7505,7 +7505,7 @@ Teext = [[
 ⋄︙لعبة المعاني ↫ معاني
  — — — — — — — — — 
 ⋄︙نقاطي ↫ لعرض عدد الارباح
-⋄︙بيع نقاطي + العدد ↫ لستبدال كل مجوهره ب50 رساله
+⋄︙بيع نقاطي + العدد ↫ لستبدال كل نقطه ب50 رساله
 ]]
 send(msg.chat_id_, msg.id_,Teext) 
 end
@@ -7553,7 +7553,7 @@ local Num = database:get(bot_id.."Add:Num"..msg.chat_id_..msg.sender_user_id_) o
 if Num == 0 then 
 Text = "⋄︙لم تلعب اي لعبه للحصول على نقاط"
 else
-Text = "⋄︙عدد نقاط التي رحبتها هي *~ { "..Num.." } مجوهره *"
+Text = "⋄︙عدد نقاط التي رحبتها هي *~ { "..Num.." } نقطه *"
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
@@ -7577,13 +7577,13 @@ send(msg.chat_id_,msg.id_,"⋄︙ليس لديك نقاط من الالعاب \n
 else
 local NUM_GAMES = database:get(bot_id.."Add:Num"..msg.chat_id_..msg.sender_user_id_)
 if tonumber(NUMPY) > tonumber(NUM_GAMES) then
-send(msg.chat_id_,msg.id_,"\n⋄︙ليس لديك نقاط بهاذا العدد \n⋄︙لزيادة مجوهراتك في اللعبه \n⋄︙ارسل الالعاب وابدأ اللعب !") 
+send(msg.chat_id_,msg.id_,"\n⋄︙ليس لديك نقاط بهاذا العدد \n⋄︙لزيادة نقاطك في اللعبه \n⋄︙ارسل الالعاب وابدأ اللعب !") 
 return false 
 end
 local NUMNKO = (NUMPY * 50)
 database:decrby(bot_id.."Add:Num"..msg.chat_id_..msg.sender_user_id_,NUMPY)  
 database:incrby(bot_id.."messageUser"..msg.chat_id_..":"..msg.sender_user_id_,NUMNKO)  
-send(msg.chat_id_,msg.id_,"⋄︙تم خصم *~ { "..NUMPY.." }* من مجوهراتك \n⋄︙وتم اضافة* ~ { "..(NUMPY * 50).." } رساله الى رسالك *")
+send(msg.chat_id_,msg.id_,"⋄︙تم خصم *~ { "..NUMPY.." }* من نقاطك \n⋄︙وتم اضافة* ~ { "..(NUMPY * 50).." } رساله الى رسالك *")
 end 
 return false 
 end
@@ -7615,7 +7615,7 @@ database:del(bot_id.."gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)
 local numadded = string.match(text, "(%d+)") 
 local iduserr = database:get(bot_id.."idgem:user"..msg.chat_id_)  
 database:incrby(bot_id.."Add:Num"..msg.chat_id_..iduserr,numadded)  
-send(msg.chat_id_, msg.id_,"⋄︙تم اضافة له {"..numadded.."} من المجوهرات")  
+send(msg.chat_id_, msg.id_,"⋄︙تم اضافة له {"..numadded.."} من النقاط")  
 end
 ------------------------------------------------------------
 if text and text:match("^اضف رسائل (%d+)$") and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
@@ -7634,7 +7634,7 @@ database:setex(bot_id.."numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id
 send(msg.chat_id_, msg.id_, "✉ : ارسل لي عدد الرسائل الان") 
 return false
 end
-if text and text:match("^اضف مجوهرات (%d+)$") and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
+if text and text:match("^اضف نقاط (%d+)$") and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -7644,13 +7644,13 @@ send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة
 end
 return false
 end  
-taha = text:match("^اضف مجوهرات (%d+)$")
+taha = text:match("^اضف نقاط (%d+)$")
 database:set(bot_id.."idgem:user"..msg.chat_id_,taha)  
 database:setex(bot_id.."gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-send(msg.chat_id_, msg.id_, "⋄︙ارسل لي عدد المجوهرات الان") 
+send(msg.chat_id_, msg.id_, "⋄︙ارسل لي عدد النقاط الان") 
 return false
 end
-if text and text:match("^اضف مجوهرات (%d+)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then  
+if text and text:match("^اضف نقاط (%d+)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -7660,10 +7660,10 @@ send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة
 end
 return false
 end
-local Num = text:match("^اضف مجوهرات (%d+)$")
+local Num = text:match("^اضف نقاط (%d+)$")
 function reply(extra, result, success)
 database:incrby(bot_id.."Add:Num"..msg.chat_id_..result.sender_user_id_,Num)  
-send(msg.chat_id_, msg.id_,"⋄︙تم اضافة له {"..Num.."} من المجوهرات")  
+send(msg.chat_id_, msg.id_,"⋄︙تم اضافة له {"..Num.."} من النقاط")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},reply, nil)
 return false
@@ -9868,7 +9868,7 @@ local Teext =[[
 ⋄ الاوامر المضافه
 ⋄ حذف/مسح الاوامر المضافه
 ⋄ اضف رسائل + العدد بالرد
-⋄ اضف مجوهرات + العدد بالرد
+⋄ اضف نقاط + العدد بالرد
  — — — — — — — — — 
 [- sᴏᴜʀᴄᴇ ᴍᴇʀᴏ](t.me/YYYDR)
 ]]

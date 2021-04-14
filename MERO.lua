@@ -14,15 +14,10 @@ IP = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a')
 name = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a')
 port = io.popen("echo ${SSH_CLIENT} | awk '{ port = $3 } END { print port }'"):read('*a')
 Rtime = io.popen("date +'%Y-%m-%d %T'"):read('*a')
-print("\27[34m"..[[┏┓━━━━━━━━━━━┏┓━━━━━━━━
-┃┃━━━━━━━━━━━┃┃━━━━━━━━
-┃┗━┓┏━━┓┏┓━┏┓┃┃┏┓┏━━┓         
-┃┏┓┃┃┏┓┃┃┃━┃┃┃┗┛┛┗━┓┃        
-┃┗┛┃┃┗┛┃┃┗━┛┃┃┏┓┓┃┗┛┗┓  
-┗━━┛┗━━┛┗━┓┏┛┗┛┗┛┗━━━┛ 
-━━━━━━━━┏━┛┃━━━━━━━━━━           
-━━━━━━━━┗━━┛━━━━━━━━━━━
- > CH › @YYYKU
+print("\27[34m"..[[
+┏━━━━━━━━━━━┓
+┋        M   E   R   O ┋
+┗━━━━━━━━━━━┛
 > CH › @YYYDR
 ~> DEVELOPER › @FEEEM]].."\27[m")
 io.popen("mkdir Files")
@@ -6212,8 +6207,7 @@ Text = "\n⋄︙تم تعطيل امر اطردني"
 send(msg.chat_id_, msg.id_,Text) 
 end
 
-if text and text:match('^رفع القيود @(.*)') and Manager(msg) then 
-local username = text:match('^رفع القيود @(.*)') 
+if text and text:match("^رفع القيود @(.*)") and Owner(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6223,34 +6217,30 @@ send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة
 end
 return false
 end
-function start_function(extra, result, success)
+local username = text:match("^رفع القيود @(.*)") 
+function Function_MERO(extra, result, success)
 if result.id_ then
 if DevMERO(msg) then
-https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-database:srem(bot_id..'GBan:User',result.id_)
-database:srem(bot_id..'Ban:User'..msg.chat_id_,result.id_)
-database:srem(bot_id..'Muted:User'..msg.chat_id_,result.id_)
-database:srem(bot_id..'Gmute:User'..msg.chat_id_,result.id_)
-usertext = '\n*⋄︙المستخدم ↫* ['..result.title_..'](t.me/'..(username or 'YYYDR')..')'
-status  = '\n*⋄︙رفع عنه الحظر ، الكتم ، التقييد*'
+database:srem(bot_id.."GBan:User",result.id_)
+database:srem(bot_id.."Ban:User"..msg.chat_id_,result.id_)
+database:srem(bot_id.."Muted:User"..msg.chat_id_,result.id_)
+usertext = "\n⋄︙ العضو ↫ ["..result.title_.."](t.me/"..(username or "kenwa")..")"
+status  = "\n⋄︙ تم الغاء القيود عنه"
 texts = usertext..status
 send(msg.chat_id_, msg.id_,texts)
 else
-database:srem(bot_id..'Ban:User'..msg.chat_id_,result.id_)
-database:srem(bot_id..'Muted:User'..msg.chat_id_,result.id_)
-usertext = '\n العضو » ['..result.title_..'](t.me/'..(username or 'YYYDR')..')'
-status  = '\n⋄︙تم الغاء القيود عنه'
-texts = usertext..status
-send(msg.chat_id_, msg.id_,texts)
+database:srem(bot_id.."Ban:User"..msg.chat_id_,result.id_)
+database:srem(bot_id.."Muted:User"..msg.chat_id_,result.id_)
+Reply_Status(msg,result.id_,"reply","\n⋄︙ تم الغاء القيود عنه")  
 end
 else
-Text = '⋄︙الـمعرف غلــط'
+Text = "⋄︙ المعرف غلط"
 send(msg.chat_id_, msg.id_,Text)
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
 end
-if text == "رفع القيود" and Manager(msg) then
+if text == "رفع القيود" and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6260,29 +6250,23 @@ send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة
 end
 return false
 end
-function start_function(extra, result, success)
+function Function_MERO(extra, result, success)
 if DevMERO(msg) then
-https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-database:srem(bot_id..'GBan:User',result.sender_user_id_)
-database:srem(bot_id..'Ban:User'..msg.chat_id_,result.sender_user_id_)
-database:srem(bot_id..'Muted:User'..msg.chat_id_,result.sender_user_id_)
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n*⋄︙المستخدم ↫* ['..data.first_name_..'](t.me/'..(data.username_ or 'YYYDR')..')'
-status  = '\n*⋄︙الايدي ↫* `'..result.sender_user_id_..'`\n*⋄︙رفع عنه الحظر ، الكتم ، التقييد*'
-send(msg.chat_id_, msg.id_, usertext..status)
-end,nil)
+database:srem(bot_id.."GBan:User",result.sender_user_id_)
+database:srem(bot_id.."Ban:User"..msg.chat_id_,result.sender_user_id_)
+database:srem(bot_id.."Muted:User"..msg.chat_id_,result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","\n⋄︙ تم الغاء القيود عنه")  
 else
-https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-database:srem(bot_id..'Ban:User'..msg.chat_id_,result.sender_user_id_)
-database:srem(bot_id..'Muted:User'..msg.chat_id_,result.sender_user_id_)
+database:srem(bot_id.."Ban:User"..msg.chat_id_,result.sender_user_id_)
+database:srem(bot_id.."Muted:User"..msg.chat_id_,result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = '\n*⋄︙العضو ↫* ['..data.first_name_..'](t.me/'..(data.username_ or 'YYYDR')..')'
-status  = '\n*⋄︙الايدي ↫* `'..result.sender_user_id_..'`\n*⋄︙رفع عنه الحظر ، الكتم ، التقييد*'
+usertext = "\n⋄︙ العضو ↫ ["..data.first_name_.."](t.me/"..(data.username_ or "kenwa")..")"
+status  = "\n⋄︙ تم الغاء القيود عنه"
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_MERO, nil)
 end
 if text and text:match("^كشف القيود @(.*)") and Owner(msg) then 
 if AddChannel(msg.sender_user_id_) == false then

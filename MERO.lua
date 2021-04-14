@@ -77,14 +77,6 @@ else
 return false  
 end  
 end
-function creatorA(msg)   --- المالك
-local jso5n = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getChatMember?chat_id='..msg.sender_user_id_..'&user_id='..msg.chat_id_)) 
-if jso5n.result.status == 'creator' or DevBot(msg)  then 
-return true 
-else 
-return false 
-end
-end
 function BasicConstructor(msg)
 local hash = database:sismember(bot_id.."Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) 
 if hash or Bot(msg) or DevMERO(msg) or creatorA(msg) or DevBotsIs(msg) then     
@@ -6091,8 +6083,8 @@ end
 if text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 then
 function start_function(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(extra,data) 
-local rtp = Rutba(result.sender_user_id_,msg.chat_id_)
-local username = ' ['..data.first_name_..'](t.me/'..(data.username_ or 'YYYDR')..')'
+local rtp = Get_Rank(result.sender_user_id_,msg.chat_id_)
+local username = ('[@'..data.username_..']' or 'لا يوجد')
 local iduser = result.sender_user_id_
 send(msg.chat_id_, msg.id_,'*⋄︙المستخدم ↫* '..username..'*\n⋄︙الايدي ↫* `'..iduser..'`*\n⋄︙الرتبه ↫* '..rtp..' *\n⋄︙نوع الكشف ↫ بالرد*')
 end,nil)
@@ -6105,13 +6097,13 @@ local username = text:match("^كشف @(.*)$")
 function start_function(extra, result, success)
 if result.id_ then
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(extra,data) 
-local rtp = Rutba(result.id_,msg.chat_id_)
+local rtp = Get_Rank(result.id_,msg.chat_id_)
 local username = ('[@'..data.username_..']' or 'لا يوجد')
 local iduser = result.id_
 send(msg.chat_id_, msg.id_,'*⋄︙الايدي ↫* `'..iduser..'`*\n⋄︙المعرف ↫* '..username..'*\n⋄︙الرتبه ↫* '..rtp..'*\n⋄︙نوع الكشف ↫ بالمعرف* ')
 end,nil)
 else
-send(msg.chat_id_, msg.id_,'⋄︙المعرف غير صحيح ')
+send(msg.chat_id_, msg.id_,'✫: المعرف غير صحيح ')
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)

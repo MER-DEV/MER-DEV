@@ -35,17 +35,7 @@ print(serpent.block(value, {comment=false}))
 end 
 function dl_cb(t,s)
 end
-function DevMEROe(user)  
-local Taha_Sudo = false  
-for k,v in pairs(List_Sudos) do  
-if user == v then  
-Taha_Sudo = true  
-end  
-end  
-return Taha_Sudo  
-end 
-
-function DevBotsIs(msg)  
+function VIP_DeV(msg)  
 local h_Sudo = false  
 for k,v in pairs(List_Sudos) do  
 if msg.sender_user_id_ == v then  
@@ -54,9 +44,9 @@ end
 end  
 return h_Sudo  
 end 
-function DevMERO(msg) 
+function DevMEROe(msg) 
 local hash = database:sismember(bot_id.."DEV:Sudo:T", msg.sender_user_id_) 
-if hash or DevBotsIs(msg) then  
+if hash or VIP_DeV(msg) then  
 return true  
 else  
 return false  
@@ -71,7 +61,7 @@ return idbot
 end
 function DevBot(msg) 
 local hash = database:sismember(bot_id.."Sudo:User", msg.sender_user_id_) 
-if hash or Bot(msg) or DevMERO(msg) or DevBotsIs(msg) then    
+if hash or Bot(msg) or DevMEROe(msg) or VIP_DeV(msg) then    
 return true  
 else  
 return false  
@@ -79,7 +69,7 @@ end
 end
 function BasicConstructor(msg)
 local hash = database:sismember(bot_id.."Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) 
-if hash or Bot(msg) or DevMERO(msg) or creatorA(msg) or DevBotsIs(msg) then     
+if hash or Bot(msg) or DevMEROe(msg) or DevBot(msg) or VIP_DeV(msg) then     
 return true 
 else 
 return false 
@@ -87,7 +77,7 @@ end
 end
 function Constructor(msg)
 local hash = database:sismember(bot_id.."Constructor"..msg.chat_id_, msg.sender_user_id_) 
-if hash or Bot(msg) or DevMERO(msg) or DevBot(msg) or BasicConstructor(msg) or DevBotsIs(msg) then        
+if hash or Bot(msg) or DevMEROe(msg) or DevBot(msg) or BasicConstructor(msg) or VIP_DeV(msg) then        
 return true    
 else    
 return false    
@@ -95,7 +85,7 @@ end
 end
 function Owner(msg)
 local hash = database:sismember(bot_id.."Manager"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Bot(msg) or DevMERO(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or DevBotsIs(msg) then        
+if hash or Bot(msg) or DevMEROe(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or VIP_DeV(msg) then        
 return true    
 else    
 return false    
@@ -103,7 +93,7 @@ end
 end
 function Addictive(msg)
 local hash = database:sismember(bot_id.."Mod:User"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Bot(msg) or DevMERO(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or DevBotsIs(msg) then        
+if hash or Bot(msg) or DevMEROe(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or VIP_DeV(msg) then        
 return true    
 else    
 return false    
@@ -111,7 +101,7 @@ end
 end
 function Vips(msg)
 local hash = database:sismember(bot_id.."Special:User"..msg.chat_id_,msg.sender_user_id_) 
-if hash or Bot(msg) or  DevMERO(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or DevBotsIs(msg) then        
+if hash or Bot(msg) or  DevMEROe(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or VIP_DeV(msg) then        
 return true 
 else 
 return false 

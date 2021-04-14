@@ -6096,10 +6096,10 @@ end
 if text == 'كشف' and tonumber(msg.reply_to_message_id_) > 0 then
 function start_function(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(extra,data) 
-local rtp = Get_Rank(result.sender_user_id_,msg.chat_id_)
-local username = ('[@'..data.username_..']' or 'لا يوجد')
+local rtp = Rutba(result.sender_user_id_,msg.chat_id_)
+local username = ' ['..data.first_name_..'](t.me/'..(data.username_ or 'YYYDR')..')'
 local iduser = result.sender_user_id_
-send(msg.chat_id_, msg.id_,'⋄︙الايدي > ('..iduser..')\n⋄︙المعرف > ('..username..')\n⋄︙الرتبه > ('..rtp..')\n')
+send(msg.chat_id_, msg.id_,'*⋄︙المستخدم ↫* '..username..'*\n⋄︙الايدي ↫* `'..iduser..'`*\n⋄︙الرتبه ↫* '..rtp..' *\n⋄︙نوع الكشف ↫ بالرد*')
 end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
@@ -6110,10 +6110,10 @@ local username = text:match("^كشف @(.*)$")
 function start_function(extra, result, success)
 if result.id_ then
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(extra,data) 
-local rtp = Get_Rank(result.id_,msg.chat_id_)
+local rtp = Rutba(result.id_,msg.chat_id_)
 local username = ('[@'..data.username_..']' or 'لا يوجد')
 local iduser = result.id_
-send(msg.chat_id_, msg.id_,'⋄︙الايدي > ('..iduser..')\n⋄︙المعرف > ('..username..')\n⋄︙الرتبه > ('..rtp..')\n')
+send(msg.chat_id_, msg.id_,'*⋄︙الايدي ↫* `'..iduser..'`*\n⋄︙المعرف ↫* '..username..'*\n⋄︙الرتبه ↫* '..rtp..'*\n⋄︙نوع الكشف ↫ بالمعرف* ')
 end,nil)
 else
 send(msg.chat_id_, msg.id_,'⋄︙المعرف غير صحيح ')
@@ -6212,7 +6212,8 @@ Text = "\n⋄︙تم تعطيل امر اطردني"
 send(msg.chat_id_, msg.id_,Text) 
 end
 
-if text and text:match("^رفع القيود @(.*)") and Owner(msg) then 
+if text and text:match('^رفع القيود @(.*)') and Manager(msg) then 
+local username = text:match('^رفع القيود @(.*)') 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6222,30 +6223,34 @@ send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة
 end
 return false
 end
-local username = text:match("^رفع القيود @(.*)") 
-function Function_MERO(extra, result, success)
+function start_function(extra, result, success)
 if result.id_ then
 if DevMERO(msg) then
-database:srem(bot_id.."GBan:User",result.id_)
-database:srem(bot_id.."Ban:User"..msg.chat_id_,result.id_)
-database:srem(bot_id.."Muted:User"..msg.chat_id_,result.id_)
-usertext = "\n⋄︙ العضو ↫ ["..result.title_.."](t.me/"..(username or "kenwa")..")"
-status  = "\n⋄︙ تم الغاء القيود عنه"
+https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
+database:srem(bot_id..'GBan:User',result.id_)
+database:srem(bot_id..'Ban:User'..msg.chat_id_,result.id_)
+database:srem(bot_id..'Muted:User'..msg.chat_id_,result.id_)
+database:srem(bot_id..'Gmute:User'..msg.chat_id_,result.id_)
+usertext = '\n*⋄︙المستخدم ↫* ['..result.title_..'](t.me/'..(username or 'YYYDR')..')'
+status  = '\n*⋄︙رفع عنه الحظر ، الكتم ، التقييد*'
 texts = usertext..status
 send(msg.chat_id_, msg.id_,texts)
 else
-database:srem(bot_id.."Ban:User"..msg.chat_id_,result.id_)
-database:srem(bot_id.."Muted:User"..msg.chat_id_,result.id_)
-Reply_Status(msg,result.id_,"reply","\n⋄︙ تم الغاء القيود عنه")  
+database:srem(bot_id..'Ban:User'..msg.chat_id_,result.id_)
+database:srem(bot_id..'Muted:User'..msg.chat_id_,result.id_)
+usertext = '\n العضو » ['..result.title_..'](t.me/'..(username or 'YYYDR')..')'
+status  = '\n⋄︙تم الغاء القيود عنه'
+texts = usertext..status
+send(msg.chat_id_, msg.id_,texts)
 end
 else
-Text = "⋄︙ المعرف غلط"
+Text = '⋄︙الـمعرف غلــط'
 send(msg.chat_id_, msg.id_,Text)
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 end
-if text == "رفع القيود" and Owner(msg) then
+if text == "رفع القيود" and Manager(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6255,23 +6260,29 @@ send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة
 end
 return false
 end
-function Function_MERO(extra, result, success)
+function start_function(extra, result, success)
 if DevMERO(msg) then
-database:srem(bot_id.."GBan:User",result.sender_user_id_)
-database:srem(bot_id.."Ban:User"..msg.chat_id_,result.sender_user_id_)
-database:srem(bot_id.."Muted:User"..msg.chat_id_,result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","\n⋄︙ تم الغاء القيود عنه")  
-else
-database:srem(bot_id.."Ban:User"..msg.chat_id_,result.sender_user_id_)
-database:srem(bot_id.."Muted:User"..msg.chat_id_,result.sender_user_id_)
+https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
+database:srem(bot_id..'GBan:User',result.sender_user_id_)
+database:srem(bot_id..'Ban:User'..msg.chat_id_,result.sender_user_id_)
+database:srem(bot_id..'Muted:User'..msg.chat_id_,result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-usertext = "\n⋄︙ العضو ↫ ["..data.first_name_.."](t.me/"..(data.username_ or "kenwa")..")"
-status  = "\n⋄︙ تم الغاء القيود عنه"
+usertext = '\n*⋄︙المستخدم ↫* ['..data.first_name_..'](t.me/'..(data.username_ or 'YYYDR')..')'
+status  = '\n*⋄︙الايدي ↫* `'..result.sender_user_id_..'`\n*⋄︙رفع عنه الحظر ، الكتم ، التقييد*'
+send(msg.chat_id_, msg.id_, usertext..status)
+end,nil)
+else
+https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
+database:srem(bot_id..'Ban:User'..msg.chat_id_,result.sender_user_id_)
+database:srem(bot_id..'Muted:User'..msg.chat_id_,result.sender_user_id_)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n*⋄︙العضو ↫* ['..data.first_name_..'](t.me/'..(data.username_ or 'YYYDR')..')'
+status  = '\n*⋄︙الايدي ↫* `'..result.sender_user_id_..'`\n*⋄︙رفع عنه الحظر ، الكتم ، التقييد*'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_MERO, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 end
 if text and text:match("^كشف القيود @(.*)") and Owner(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
@@ -6987,7 +6998,7 @@ local Status_Gps = Get_Rank(Id,msg.chat_id_)
 local message_edit = database:get(bot_id..'message_edit'..msg.chat_id_..data.id_) or 0
 local Num_Games = database:get(bot_id.."Msg_User"..msg.chat_id_..":"..data.id_) or 0
 local Add_Mem = database:get(bot_id.."Add:Memp"..msg.chat_id_..":"..data.id_) or 0
-send(msg.chat_id_, msg.id_,'*⋄︙ايديه - '..Id..'\n⋄︙رسائله - '..NumMsg..'\n⋄︙معرفه - *['..UserName_User..']*\n⋄︙تفاعله - '..TotalMsg..'\n⋄︙رتبته - '..Status_Gps..'\n⋄︙تعديلاته - '..message_edit..'\n⋄︙جهاته - '..Add_Mem..'\n⋄︙نوع الكشف - بالرد \n*') 
+send(msg.chat_id_, msg.id_,'*⋄︙ايديه ↫ '..Id..'\n⋄︙رسائله ↫ '..NumMsg..'\n⋄︙معرفه ↫ *['..UserName_User..']*\n⋄︙تفاعله ↫ '..TotalMsg..'\n⋄︙رتبته ↫ '..Status_Gps..'\n⋄︙تعديلاته ↫ '..message_edit..'\n⋄︙جهاته ↫ '..Add_Mem..'\n⋄︙نوع الكشف ↫ بالرد \n*') 
 end,nil)   
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_MERO, nil)
@@ -7011,7 +7022,7 @@ local Status_Gps = Get_Rank(Id,msg.chat_id_)
 local message_edit = database:get(bot_id..'message_edit'..msg.chat_id_..data.id_) or 0
 local Num_Games = database:get(bot_id.."Msg_User"..msg.chat_id_..":"..data.id_) or 0
 local Add_Mem = database:get(bot_id.."Add:Memp"..msg.chat_id_..":"..data.id_) or 0
-send(msg.chat_id_, msg.id_,'*⋄︙ايديه - '..Id..'\n⋄︙رسائله - '..NumMsg..'\n⋄︙معرفه - *['..UserName_User..']*\n⋄︙تفاعله - '..TotalMsg..'\n⋄︙رتبته - '..Status_Gps..'\n⋄︙تعديلاته - '..message_edit..'\n⋄︙جهاته - '..Add_Mem..'\n⋄︙نوع الكشف - بالمعرف \n*') 
+send(msg.chat_id_, msg.id_,'*⋄︙ايديه ↫ '..Id..'\n⋄︙رسائله ↫ '..NumMsg..'\n⋄︙معرفه ↫ *['..UserName_User..']*\n⋄︙تفاعله ↫ '..TotalMsg..'\n⋄︙رتبته ↫ '..Status_Gps..'\n⋄︙تعديلاته ↫ '..message_edit..'\n⋄︙جهاته ↫ '..Add_Mem..'\n⋄︙نوع الكشف ↫ بالمعرف \n*') 
 end,nil)   
 else
 send(msg.chat_id_, msg.id_,'⋄︙لا يوجد حساب بهاذا المعرف')

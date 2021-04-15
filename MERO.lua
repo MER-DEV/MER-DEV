@@ -485,8 +485,8 @@ function Reply_Status(msg,user_id,status,text)
 tdcli_function ({ID = "GetUser",user_id_ = user_id},function(arg,data) 
 if data.first_name_ ~= false then
 local UserName = (data.username_ or "YYYDR")
-local NameUser = "*⋄︙بواسطه ↫ [*"..data.first_name_.."](T.me/"..UserName..")"
-local NameUserr = "*⋄︙اسم المستخدم ↫ [*"..data.first_name_.."](T.me/"..UserName..")"
+local NameUser = "⋄︙بواسطه ↫ ["..data.first_name_.."](T.me/"..UserName..")"
+local NameUserr = "⋄︙اسم المستخدم ↫ ["..data.first_name_.."](T.me/"..UserName..")"
 if status == "lock" then
 send(msg.chat_id_, msg.id_,NameUser.."\n"..text.."\n— — — — — — — — —\n*⋄︙تم تنفيذ الامر بخاصيه ( المسح )*\n")
 return false
@@ -3369,7 +3369,7 @@ return false
 end
 function Function_MERO(extra, result, success)
 database:sadd(bot_id.."Special:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","*⋄︙تم ترقيته مميز للمجموعه*")  
+Reply_Status(msg,result.sender_user_id_,"reply","⋄︙تم ترقيته مميز للمجموعه")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_MERO, nil)
 return false

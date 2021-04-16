@@ -8492,7 +8492,7 @@ local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
 local TextS = "\n*⋄︙اهلا بك في متجر ملفات ميرو*\n*⋄︙يوجد في المتجر ملف الردود*\n*⋄︙يتم ادراج الملفات في التحديثات القادمه* \n*⊶─────≺⋆≻─────⊷*\n"
-local TextE = "\n*⊶─────≺⋆≻─────⊷*\n⋄︙تدل علامة (✔) الملف مفعل\n".."⋄︙تدل علامة (✖) الملف معطل\n"
+local TextE = "\n*⊶─────≺⋆≻─────⊷*\n*⋄︙تدل علامة (✔) الملف مفعل*\n".."*⋄︙تدل علامة (✖) الملف معطل*\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
 local Check_File_is_Found = io.open("Files/"..name,"r")

@@ -8689,7 +8689,7 @@ tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,'*⋄︙المجموعه مفعله سابقا* ')
 else
-Reply_Status(msg,result.id_,'reply_Add','*⋄︙تم تفعيل المجموعه ~ '..chat.title_..*'')
+Reply_Status(msg,result.id_,'reply_Add','*⋄︙تم تفعيل المجموعه ~* '..chat.title_..'')
 database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_

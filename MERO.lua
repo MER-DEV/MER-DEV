@@ -5127,7 +5127,7 @@ end
 if Addictive(msg) then
 database:setex(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 t  = "*⋄︙ارسل لي الترحيب الان*"
-tt = "\n*⋄︙تستطيع اضافة مايلي !*\n*⋄︙دالة عرض الاسم ↫{`name`}*\n*⋄︙دالة عرض المعرف ↫{`user`}*"
+tt = "\n*⋄︙تستطيع اضافة مايلي !*\n*⋄︙دالة عرض الاسم ↫*{`name`}\n*⋄︙دالة عرض المعرف ↫*{`user`}"
 send(msg.chat_id_, msg.id_,t..tt) 
 end
 return false  

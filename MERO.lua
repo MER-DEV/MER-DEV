@@ -9089,7 +9089,7 @@ database:set(bot_id..'na:Bots',true)
 send(msg.chat_id_, msg.id_,'⋄︙ارسل اسم البوت الان . ') 
 end
 if text == 'قناه تحديثات البوت ⋄' then  
-send(msg.chat_id_, msg.id_,'⋄︙[تحديثات البوت](t.me/YYYDR) .\n - [قناه السورس](t.me/pvv_v) .')
+send(msg.chat_id_, msg.id_,'⋄︙[تحديثات البوت](t.me/YYYKU) .\n⋄︙[قناه السورس](t.me/YYYDR) .')
 return false  
 end
 if text =='الاحصائيات ⋄' then
@@ -9328,7 +9328,7 @@ end
 return false  
 end
 if database:get(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
-if text and text:match("^الغاء$") then 
+if text and text:match("^الغاء ⋄$") then 
 send(msg.chat_id_, msg.id_, "⋄︙تم الغاء الامر ")
 database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
@@ -9360,7 +9360,7 @@ end
 end,nil)
 end
 if database:get(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
-if text and text:match("^الغاء$") then 
+if text and text:match("^الغاء ⋄$") then 
 send(msg.chat_id_, msg.id_, "⋄︙تم الغاء الامر ")
 database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 

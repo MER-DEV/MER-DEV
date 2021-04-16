@@ -4356,7 +4356,7 @@ end
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_)
 Reply_Status(msg,result.id_,"reply","⋄︙تم تقييده في المجموعه")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -4417,7 +4417,7 @@ if result.id_ then
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 Reply_Status(msg,result.id_,"reply","⋄︙تم الغاء تقييده")  
 else
-send(msg.chat_id_, msg.id_, "⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_, "*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -4450,7 +4450,7 @@ end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⋄︙لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'*⋄︙لقد تم تعطيل الحظر و الطرد من قبل المنشئين*')
 return false
 end
 function Function_MERO(extra, result, success)
@@ -4459,7 +4459,7 @@ send(msg.chat_id_, msg.id_, "\n⋄︙عذرا لا تستطيع طرد او حظ
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"⋄︙ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"*⋄︙ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !*") 
 return false  
 end
 if msg.can_be_deleted_ == false then 
@@ -4486,7 +4486,7 @@ return false
 end 
 local username = text:match("^طرد @(.*)$")
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⋄︙لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'*⋄︙لقد تم تعطيل الحظر و الطرد من قبل المنشئين*')
 return false
 end
 function Function_MERO(extra, result, success)
@@ -4500,7 +4500,7 @@ send(msg.chat_id_,msg.id_,"⋄︙عذرا عزيزي المستخدم هاذا �
 return false 
 end      
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"⋄︙ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"*⋄︙ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !*") 
 return false  
 end
 if msg.can_be_deleted_ == false then 
@@ -4512,7 +4512,7 @@ Reply_Status(msg,result.id_,"reply","⋄︙تم طرده من هنا")
 end,nil)   
 end
 else
-send(msg.chat_id_, msg.id_, "⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_, "*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -4531,7 +4531,7 @@ return false
 end 
 local userid = text:match("^طرد (%d+)$") 
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⋄︙لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'*⋄︙لقد تم تعطيل الحظر و الطرد من قبل المنشئين*')
 return false
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
@@ -4539,11 +4539,11 @@ send(msg.chat_id_, msg.id_, "\n⋄︙عذرا لا تستطيع طرد او حظ
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = userid, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"⋄︙ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"*⋄︙ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !*") 
 return false  
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"⋄︙البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"*⋄︙البوت ليس ادمن يرجى ترقيتي !*") 
 return false  
 end
 Kick_Group(msg.chat_id_, userid)
@@ -4565,7 +4565,7 @@ return false
 end
 if Constructor(msg) then
 database:set(bot_id.."Ban:Cheking"..msg.chat_id_,"true")
-send(msg.chat_id_, msg.id_, '⋄︙تم تعطيل ↫ الحظر ~ والطرد ')
+send(msg.chat_id_, msg.id_, '*⋄︙تم تعطيل ↫ الحظر ~ والطرد *')
 return false
 end
 end
@@ -4581,7 +4581,7 @@ return false
 end
 if Constructor(msg) then
 database:del(bot_id.."Ban:Cheking"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '⋄︙تم تفعيل ↫ الحظر ~ والطرد ')
+send(msg.chat_id_, msg.id_, '*⋄︙تم تفعيل ↫ الحظر ~ والطرد *')
 return false
 end
 end
@@ -4597,7 +4597,7 @@ return false
 end
 if Constructor(msg) then
 database:set(bot_id.."Add:Group:Cheking"..msg.chat_id_,"true")
-send(msg.chat_id_, msg.id_, '⋄︙تم تعطيل رفع ↫ الادمن ~ المميز ')
+send(msg.chat_id_, msg.id_, '*⋄︙تم تعطيل رفع ↫ الادمن ~ المميز *')
 return false
 end
 end
@@ -4613,7 +4613,7 @@ return false
 end
 if Constructor(msg) then
 database:del(bot_id.."Add:Group:Cheking"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '⋄︙تم تفعيل رفع ↫ الادمن ~ المميز ')
+send(msg.chat_id_, msg.id_, '*⋄︙تم تفعيل رفع ↫ الادمن ~ المميز *')
 return false
 end
 end
@@ -4623,7 +4623,7 @@ function start_function(extra, result, success)
 local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
 local getInfo = JSON.decode(chek)
 if getInfo.result.can_promote_members == false then
-send(msg.chat_id_, msg.id_,'⋄︙لا يمكنني تعديل  او وضع لقب ليس لدي صلاحيه') 
+send(msg.chat_id_, msg.id_,'*⋄︙لا يمكنني تعديل  او وضع لقب ليس لدي صلاحيه*') 
 return false  
 end
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
@@ -4650,7 +4650,7 @@ end
 local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
 local getInfo = JSON.decode(chek)
 if getInfo.result.can_promote_members == false then
-send(msg.chat_id_, msg.id_,'⋄︙لا يمكنني رفعه ليس لدي صلاحيه رفع مشرفين') 
+send(msg.chat_id_, msg.id_,'*⋄︙لا يمكنني رفعه ليس لدي صلاحيه رفع مشرفين*') 
 return false  
 end
 function Function_MERO(extra, result, success)
@@ -4674,7 +4674,7 @@ local username = text:match("^رفع مشرف @(.*)$")
 local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
 local getInfo = JSON.decode(chek)
 if getInfo.result.can_promote_members == false then
-send(msg.chat_id_, msg.id_,'⋄︙لا يمكنني رفعه ليس لدي صلاحيه رفع مشرفين') 
+send(msg.chat_id_, msg.id_,'*⋄︙لا يمكنني رفعه ليس لدي صلاحيه رفع مشرفين*') 
 return false  
 end
 function Function_MERO(extra, result, success)
@@ -4686,7 +4686,7 @@ end
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
 Reply_Status(msg,result.id_,"reply","⋄︙تم ترقيته مشرف للمجموعه")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -4706,7 +4706,7 @@ local userid = text:match("^رفع مشرف (%d+)$")
 local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
 local getInfo = JSON.decode(chek)
 if getInfo.result.can_promote_members == false then
-send(msg.chat_id_, msg.id_,'⋄︙لا يمكنني رفعه ليس لدي صلاحيه رفع مشرفين') 
+send(msg.chat_id_, msg.id_,'*⋄︙لا يمكنني رفعه ليس لدي صلاحيه رفع مشرفين*') 
 return false  
 end
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
@@ -4727,7 +4727,7 @@ end
 local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
 local getInfo = JSON.decode(chek)
 if getInfo.result.can_promote_members == false then
-send(msg.chat_id_, msg.id_,'⋄︙لا يمكنني رفعه ليس لدي صلاحيه تنزيل مشرفين') 
+send(msg.chat_id_, msg.id_,'*⋄︙لا يمكنني رفعه ليس لدي صلاحيه تنزيل مشرفين*') 
 return false  
 end
 function Function_MERO(extra, result, success)
@@ -4751,7 +4751,7 @@ local username = text:match("^تنزيل مشرف @(.*)$")
 local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
 local getInfo = JSON.decode(chek)
 if getInfo.result.can_promote_members == false then
-send(msg.chat_id_, msg.id_,'⋄︙لا يمكنني رفعه ليس لدي صلاحيه تنزيل مشرفين') 
+send(msg.chat_id_, msg.id_,'*⋄︙لا يمكنني رفعه ليس لدي صلاحيه تنزيل مشرفين*') 
 return false  
 end
 function Function_MERO(extra, result, success)
@@ -4759,7 +4759,7 @@ if result.id_ then
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
 Reply_Status(msg,result.id_,"reply","⋄︙تم تنزيله من المشرفين")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -4779,7 +4779,7 @@ local userid = text:match("^تنزيل مشرف (%d+)$")
 local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
 local getInfo = JSON.decode(chek)
 if getInfo.result.can_promote_members == false then
-send(msg.chat_id_, msg.id_,'⋄︙لا يمكنني رفعه ليس لدي صلاحيه تنزيل مشرفين') 
+send(msg.chat_id_, msg.id_,'*⋄︙لا يمكنني رفعه ليس لدي صلاحيه تنزيل مشرفين*') 
 return false  
 end
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
@@ -4854,17 +4854,17 @@ end
 return false
 end
 if database:sismember(bot_id.."Lock:pin",msg.chat_id_) and not Constructor(msg) then
-send(msg.chat_id_,msg.id_,"⋄︙التثبيت والغاء التثبيت تم قفله من قبل المنشئين")  
+send(msg.chat_id_,msg.id_,"*⋄︙التثبيت والغاء التثبيت تم قفله من قبل المنشئين*")  
 return false  
 end
 tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub("-100",""),message_id_ = msg.reply_to_message_id_,disable_notification_ = 1},function(arg,data) 
 if data.ID == "Ok" then
-send(msg.chat_id_, msg.id_,"⋄︙تم تثبيت الرساله")   
+send(msg.chat_id_, msg.id_,"*⋄︙تم تثبيت الرساله*")   
 database:set(bot_id.."Pin:Id:Msg"..msg.chat_id_,msg.reply_to_message_id_)
 elseif data.code_ == 6 then
 send(msg.chat_id_,msg.id_,"⋄︙انا لست ادمن هنا يرجى ترقيتي ادمن ثم اعد المحاوله")  
 elseif data.message_ == "CHAT_ADMIN_REQUIRED" then
-send(msg.chat_id_,msg.id_,"⋄︙ليست لدي صلاحية التثبيت يرجى التحقق من الصلاحيات")  
+send(msg.chat_id_,msg.id_,"*⋄︙ليست لدي صلاحية التثبيت يرجى التحقق من الصلاحيات*")  
 end
 end,nil) 
 end
@@ -4879,17 +4879,17 @@ end
 return false
 end
 if database:sismember(bot_id.."Lock:pin",msg.chat_id_) and not Constructor(msg) then
-send(msg.chat_id_,msg.id_,"⋄︙التثبيت والغاء التثبيت تم قفله من قبل المنشئين")  
+send(msg.chat_id_,msg.id_,"*⋄︙التثبيت والغاء التثبيت تم قفله من قبل المنشئين*")  
 return false  
 end
 tdcli_function({ID="UnpinChannelMessage",channel_id_ = msg.chat_id_:gsub("-100","")},function(arg,data) 
 if data.ID == "Ok" then
-send(msg.chat_id_, msg.id_,"⋄︙تم الغاء تثبيت الرساله")   
+send(msg.chat_id_, msg.id_,"*⋄︙تم الغاء تثبيت الرساله*")   
 database:del(bot_id.."Pin:Id:Msg"..msg.chat_id_)
 elseif data.code_ == 6 then
 send(msg.chat_id_,msg.id_,"⋄︙انا لست ادمن هنا يرجى ترقيتي ادمن ثم اعد المحاوله")  
 elseif data.message_ == "CHAT_ADMIN_REQUIRED" then
-send(msg.chat_id_,msg.id_,"⋄︙ليست لدي صلاحية التثبيت يرجى التحقق من الصلاحيات")  
+send(msg.chat_id_,msg.id_,"*⋄︙ليست لدي صلاحية التثبيت يرجى التحقق من الصلاحيات*")  
 end
 end,nil)
 end
@@ -4905,18 +4905,18 @@ end
 return false
 end
 if database:sismember(bot_id.."Lock:pin",msg.chat_id_) and not Constructor(msg) then
-send(msg.chat_id_,msg.id_,"⋄︙التثبيت والغاء التثبيت تم قفله من قبل المنشئين")  
+send(msg.chat_id_,msg.id_,"*⋄︙التثبيت والغاء التثبيت تم قفله من قبل المنشئين*")  
 return false  
 end
 tdcli_function({ID="UnpinChannelMessage",channel_id_ = msg.chat_id_:gsub("-100","")},function(arg,data) 
 if data.ID == "Ok" then
-send(msg.chat_id_, msg.id_,"⋄︙تم الغاء تثبيت الكل")   
+send(msg.chat_id_, msg.id_,"*⋄︙تم الغاء تثبيت الكل*")   
 https.request('https://api.telegram.org/bot'..token..'/unpinAllChatMessages?chat_id='..msg.chat_id_)
 database:del(bot_id.."Pin:Id:Msg"..msg.chat_id_)
 elseif data.code_ == 6 then
 send(msg.chat_id_,msg.id_,"⋄︙انا لست ادمن هنا يرجى ترقيتي ادمن ثم اعد المحاوله")  
 elseif data.message_ == "CHAT_ADMIN_REQUIRED" then
-send(msg.chat_id_,msg.id_,"⋄︙ليست لدي صلاحية التثبيت يرجى التحقق من الصلاحيات")  
+send(msg.chat_id_,msg.id_,"*⋄︙ليست لدي صلاحية التثبيت يرجى التحقق من الصلاحيات*")  
 end
 end,nil)
 end
@@ -5046,7 +5046,7 @@ end
 end
 DeleteMessage(msg.chat_id_,msgm2)
 end,nil)  
-send(msg.chat_id_, msg.id_,"تم تنظيف الميديا بنجاح ⋄")
+send(msg.chat_id_, msg.id_,"*تم تنظيف الميديا بنجاح ⋄*")
 end
 if text == "امسح" and Owner(msg) then
 Msgs = {[0]=msg.id_}
@@ -5066,7 +5066,7 @@ end
 end
 DeleteMessage(msg.chat_id_,Msgs2)
 end,nil)  
-send(msg.chat_id_, msg.id_,'⋄ تم تنظيف الميديا المعدله')
+send(msg.chat_id_, msg.id_,'*⋄ تم تنظيف الميديا المعدله*')
 end                
 if text and text:match("^ضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^وضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -5079,7 +5079,7 @@ end
 return false
 end
 database:set(bot_id.."Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_,true) 
-send(msg.chat_id_, msg.id_,"⋄︙ارسل لي الصوره") 
+send(msg.chat_id_, msg.id_,"*⋄︙ارسل لي الصوره*") 
 return false
 end
 if text == "حذف الصوره" or text == "مسح الصوره" then 
@@ -5094,7 +5094,7 @@ return false
 end
 if Addictive(msg) then
 https.request("https://api.telegram.org/bot"..token.."/deleteChatPhoto?chat_id="..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"⋄︙تم ازالة صورة المجموعه") 
+send(msg.chat_id_, msg.id_,"*⋄︙تم ازالة صورة المجموعه*") 
 end
 return false  
 end
@@ -5110,7 +5110,7 @@ return false
 end
 if Addictive(msg) then
 database:setex(bot_id.."Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-send(msg.chat_id_, msg.id_,"⋄︙ارسل الان الوصف")
+send(msg.chat_id_, msg.id_,"*⋄︙ارسل الان الوصف*")
 end
 return false  
 end
@@ -5126,8 +5126,8 @@ return false
 end
 if Addictive(msg) then
 database:setex(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
-t  = "⋄︙ارسل لي الترحيب الان"
-tt = "\n⋄︙تستطيع اضافة مايلي !\n⋄︙دالة عرض الاسم ↫{`name`}\n⋄︙دالة عرض المعرف ↫{`user`}"
+t  = "*⋄︙ارسل لي الترحيب الان*"
+tt = "\n*⋄︙تستطيع اضافة مايلي !*\n*⋄︙دالة عرض الاسم ↫{`name`}*\n*⋄︙دالة عرض المعرف ↫{`user`}*"
 send(msg.chat_id_, msg.id_,t..tt) 
 end
 return false  
@@ -5145,7 +5145,7 @@ end
 if database:get(bot_id.."Get:Welcome:Group"..msg.chat_id_)   then 
 Welcome = database:get(bot_id.."Get:Welcome:Group"..msg.chat_id_)  
 else 
-Welcome = "⋄︙لم يتم تعيين ترحيب للمجموعه"
+Welcome = "*⋄︙لم يتم تعيين ترحيب للمجموعه*"
 end 
 send(msg.chat_id_, msg.id_,"["..Welcome.."]") 
 return false  
@@ -5161,7 +5161,7 @@ end
 return false
 end
 database:set(bot_id.."Chek:Welcome"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,"⋄︙تم تفعيل ترحيب المجموعه") 
+send(msg.chat_id_, msg.id_,"*⋄︙تم تفعيل ترحيب المجموعه*") 
 return false  
 end
 if text == "تعطيل الترحيب" and Addictive(msg) then  
@@ -5175,7 +5175,7 @@ end
 return false
 end
 database:del(bot_id.."Chek:Welcome"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"⋄︙تم تعطيل ترحيب المجموعه") 
+send(msg.chat_id_, msg.id_,"*⋄︙تم تعطيل ترحيب المجموعه*") 
 return false  
 end
 if text == "مسح الترحيب" or text == "حذف الترحيب" then 
@@ -5190,7 +5190,7 @@ return false
 end
 if Addictive(msg) then
 database:del(bot_id.."Get:Welcome:Group"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"⋄︙تم ازالة ترحيب المجموعه") 
+send(msg.chat_id_, msg.id_,"*⋄︙تم ازالة ترحيب المجموعه*") 
 end
 return false  
 end
@@ -5206,7 +5206,7 @@ return false
 end
 database:set(bot_id.."Filter:msg",msg.chat_id_)
 tdcli_function ({ID = "GetUser",user_id_ = bot_id},function(arg,data) 
-local Text ='⋄︙قائمه الممنوعات'
+local Text ='*⋄︙قائمه الممنوعات*'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'صور', url="https://t.me/"..data.username_.."?start=ph"..msg.chat_id_},{text = 'كلمات', url="https://t.me/"..data.username_.."?start=msg"..msg.chat_id_}},

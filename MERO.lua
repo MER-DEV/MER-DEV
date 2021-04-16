@@ -8524,7 +8524,7 @@ t = "*⋄︙الملف ↫ {"..file.."}\n⋄︙تم تعطيله وحذفه بن
 else
 t = "*⋄︙بالتاكيد تم تعطيل وحذف ملف ↫ {"..file.."} \n✓*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/MERO-DeV/files_MER/main/files_MER/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/MER-DEV/files_MER/main/files_MER/"..file)
 if res == 200 then
 os.execute("rm -fr Files/"..file)
 send(msg.chat_id_, msg.id_,t) 
@@ -8544,7 +8544,7 @@ t = "*⋄︙بالتاكيد تم تنزيل وتفعيل ملف ↫ {"..file.."
 else
 t = "*⋄︙الملف ↫ {"..file.."}\n⋄︙تم تنزيله وتفعيله بنجاح \n*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/MERO-DeV/files_MER/main/files_MER/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/MER-DEV/files_MER/main/files_MER/"..file)
 if res == 200 then
 local chek = io.open("Files/"..file,'w+')
 chek:write(json_file)

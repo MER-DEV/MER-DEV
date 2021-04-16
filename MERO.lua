@@ -9282,12 +9282,12 @@ if text == 'حذف كليشه ستارت ⋄' then
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,'⋄︙تم حذف كليشه ستارت') 
 end
-if text and text:match("^ تغير الاشتراك ⋄ $") and DevMERO(msg) then  
+if text and text:match("^تغير الاشتراك ⋄$") and DevMERO(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '⋄︙حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text and text:match("^ تغير رساله الاشتراك ⋄ $") and DevMERO(msg) then  
+if text and text:match("^تغير رساله الاشتراك ⋄$") and DevMERO(msg) then  
 database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '⋄︙حسنآ ارسل لي النص الذي تريده')
 return false  
@@ -9297,12 +9297,12 @@ database:del(bot_id..'text:ch:user')
 send(msg.chat_id_, msg.id_, "⋄︙تم مسح رساله الاشتراك ")
 return false  
 end
-if text and text:match("^ تعين قناة الاشتراك ⋄ $") and DevMERO(msg) then  
+if text and text:match("^تعين قناة الاشتراك ⋄$") and DevMERO(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, '⋄︙حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text == "- تفعيل الاشتراك الاجباري ⋄ ." and DevMERO(msg) then  
+if text == "تفعيل الاشتراك الاجباري ⋄" and DevMERO(msg) then  
 if database:get(bot_id..'add:ch:id') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_,"⋄︙الاشتراك الاجباري مفعل \n⋄︙على القناة -› ["..addchusername.."]")

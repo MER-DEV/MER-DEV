@@ -1209,7 +1209,7 @@ local GetWelcomeGroup = database:get(bot_id.."Get:Welcome:Group"..msg.chat_id_)
 if GetWelcomeGroup then 
 t = GetWelcomeGroup
 else  
-t = "\n⋄︙يهلا بالكمرر  \n⋄︙ name \n⋄︙user" 
+t = '\n• نـورت ڪࢪوبنه ڪيـك💕 \n•  name \n• user' 
 end 
 t = t:gsub("name",result.first_name_) 
 t = t:gsub("user",("@"..result.username_ or "لا يوجد")) 
@@ -5145,7 +5145,7 @@ end
 if database:get(bot_id.."Get:Welcome:Group"..msg.chat_id_)   then 
 Welcome = database:get(bot_id.."Get:Welcome:Group"..msg.chat_id_)  
 else 
-Welcome = "*⋄︙لم يتم تعيين ترحيب للمجموعه*"
+Welcome = "⋄︙لم يتم تعيين ترحيب للمجموعه"
 end 
 send(msg.chat_id_, msg.id_,"["..Welcome.."]") 
 return false  

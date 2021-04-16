@@ -2799,15 +2799,15 @@ end
 if text == ("حظر عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMERO(msg) then
 function Function_MERO(extra, result, success)
 if result.sender_user_id_ == tonumber(Id_Sudo) then
-send(msg.chat_id_, msg.id_, "⋄︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
+send(msg.chat_id_, msg.id_, "*⋄︙سنفر لا يمكنك حظر المطور الاساسي* \n")
 return false 
 end
 if result.sender_user_id_ == tonumber(1425830897) then
-send(msg.chat_id_, msg.id_, "⋄︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+send(msg.chat_id_, msg.id_, "*⋄︙سنفر لا يمكنك حظر مطور السورس* \n")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, "⋄︙لا تسطيع حظر البوت عام")
+send(msg.chat_id_, msg.id_, "*⋄︙لا تسطيع حظر البوت عام*")
 return false 
 end
 database:sadd(bot_id.."GBan:User", result.sender_user_id_)
@@ -2826,21 +2826,21 @@ send(msg.chat_id_,msg.id_,"⋄︙عذرا عزيزي المستخدم هاذا �
 return false 
 end      
 if tonumber(result.id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, "⋄︙لا تسطيع حظر البوت عام")
+send(msg.chat_id_, msg.id_, "*⋄︙لا تسطيع حظر البوت عام*")
 return false 
 end
 if result.id_ == tonumber(Id_Sudo) then
-send(msg.chat_id_, msg.id_, "⋄︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
+send(msg.chat_id_, msg.id_, "*⋄︙سنفر لا يمكنك حظر المطور الاساسي* \n")
 return false 
 end
 if result.id_ == tonumber(1425830897) then
-send(msg.chat_id_, msg.id_, "⋄︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+send(msg.chat_id_, msg.id_, "*⋄︙سنفر لا يمكنك حظر مطور السورس* \n")
 return false 
 end
 database:sadd(bot_id.."GBan:User", result.id_)
 Reply_Status(msg,result.id_,"reply","⋄︙تم حظره عام من المجموعات")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -2849,15 +2849,15 @@ end
 if text and text:match("^حظر عام (%d+)$") and DevMERO(msg) then
 local userid = text:match("^حظر عام (%d+)$")
 if userid == tonumber(Id_Sudo) then
-send(msg.chat_id_, msg.id_, "⋄︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
+send(msg.chat_id_, msg.id_, "*⋄︙سنفر لا يمكنك حظر المطور الاساسي* \n")
 return false 
 end
 if userid == tonumber(1425830897) then
-send(msg.chat_id_, msg.id_, "⋄︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+send(msg.chat_id_, msg.id_, "*⋄︙سنفر لا يمكنك حظر مطور السورس* \n")
 return false 
 end
 if tonumber(userid) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, "⋄︙لا تسطيع حظر البوت عام")
+send(msg.chat_id_, msg.id_, "*⋄︙لا تسطيع حظر البوت عام*")
 return false 
 end
 database:sadd(bot_id.."GBan:User", userid)
@@ -2867,15 +2867,15 @@ end
 if text == ("كتم عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMERO(msg) then
 function Function_MERO(extra, result, success)
 if result.sender_user_id_ == tonumber(Id_Sudo) then
-send(msg.chat_id_, msg.id_, "⋄︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
+send(msg.chat_id_, msg.id_, "*⋄︙سرسح لا يمكنك كتم المطور الاساسي* \n")
 return false 
 end
 if result.sender_user_id_ == tonumber(1425830897) then
-send(msg.chat_id_, msg.id_, "⋄︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+send(msg.chat_id_, msg.id_, "*⋄︙سرسح لا يمكنك كتم مطور السورس* \n")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, "⋄︙لا تسطيع كتم البوت عام")
+send(msg.chat_id_, msg.id_, "*⋄︙لا تسطيع كتم البوت عام*")
 return false 
 end
 database:sadd(bot_id.."Gmute:User", result.sender_user_id_)
@@ -2894,21 +2894,21 @@ send(msg.chat_id_,msg.id_,"⋄︙عذرا عزيزي المستخدم هاذا �
 return false 
 end      
 if tonumber(result.id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, "⋄︙لا تسطيع كتم بوت عام")
+send(msg.chat_id_, msg.id_, "*⋄︙لا تسطيع كتم بوت عام*")
 return false 
 end
 if result.id_ == tonumber(Id_Sudo) then
-send(msg.chat_id_, msg.id_, "⋄︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
+send(msg.chat_id_, msg.id_, "*⋄︙سرسح لا يمكنك كتم المطور الاساسي* \n")
 return false 
 end
 if result.id_ == tonumber(1425830897) then
-send(msg.chat_id_, msg.id_, "⋄︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+send(msg.chat_id_, msg.id_, "*⋄︙سرسح لا يمكنك كتم مطور السورس* \n")
 return false 
 end
 database:sadd(bot_id.."Gmute:User", result.id_)
 Reply_Status(msg,result.id_,"reply","⋄︙تم كتمه عام من مجموعات")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -2917,15 +2917,15 @@ end
 if text and text:match("^كتم عام (%d+)$") and DevMERO(msg) then
 local userid = text:match("^كتم عام (%d+)$")
 if userid == tonumber(Id_Sudo) then
-send(msg.chat_id_, msg.id_, "⋄︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
+send(msg.chat_id_, msg.id_, "*⋄︙سرسح لا يمكنك كتم المطور الاساسي* \n")
 return false 
 end
 if userid == tonumber(1425830897) then
-send(msg.chat_id_, msg.id_, "⋄︙لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+send(msg.chat_id_, msg.id_, "*⋄︙سرسح لا يمكنك كتم مطور السورس* \n")
 return false 
 end
 if tonumber(userid) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, "⋄︙لا تسطيع كتم البوت عام")
+send(msg.chat_id_, msg.id_, "*⋄︙لا تسطيع كتم البوت عام*")
 return false 
 end
 database:sadd(bot_id.."Gmute:User", userid)
@@ -2949,7 +2949,7 @@ Reply_Status(msg,result.id_,"reply","⋄︙تم الغاء كتم وحظر عا�
 database:srem(bot_id.."GBan:User", result.id_)
 database:srem(bot_id.."Gmute:User", result.id_)
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -2963,7 +2963,7 @@ Reply_Status(msg,userid,"reply","⋄︙تم الغاء كتم وحظر عام م
 return false
 end
 
-if text == ("اضف مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMERO(msg) then
+if text == ("رفع مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMERO(msg) then
 function Function_MERO(extra, result, success)
 database:sadd(bot_id.."Sudo:User", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⋄︙تم ترقيته مطور في البوت")  
@@ -2971,8 +2971,8 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_MERO, nil)
 return false 
 end
-if text and text:match("^اضف مطور @(.*)$") and DevMERO(msg) then
-local username = text:match("^اضف مطور @(.*)$")
+if text and text:match("^رفع مطور @(.*)$") and DevMERO(msg) then
+local username = text:match("^رفع مطور @(.*)$")
 function Function_MERO(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
@@ -2982,19 +2982,19 @@ end
 database:sadd(bot_id.."Sudo:User", result.id_)
 Reply_Status(msg,result.id_,"reply","⋄︙تم ترقيته مطور في البوت")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
 return false 
 end
-if text and text:match("^اضف مطور (%d+)$") and DevMERO(msg) then
-local userid = text:match("^اضف مطور (%d+)$")
+if text and text:match("^رفع مطور (%d+)$") and DevMERO(msg) then
+local userid = text:match("^رفع مطور (%d+)$")
 database:sadd(bot_id.."Sudo:User", userid)
 Reply_Status(msg,userid,"reply","⋄︙تم ترقيته مطور في البوت")  
 return false 
 end
-if text == ("حذف مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMERO(msg) then
+if text == ("تنزيل مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevMERO(msg) then
 function Function_MERO(extra, result, success)
 database:srem(bot_id.."Sudo:User", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","⋄︙تم تنزيله من المطورين")  
@@ -3002,38 +3002,38 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_MERO, nil)
 return false 
 end
-if text and text:match("^حذف مطور @(.*)$") and DevMERO(msg) then
-local username = text:match("^حذف مطور @(.*)$")
+if text and text:match("^تنزيل مطور @(.*)$") and DevMERO(msg) then
+local username = text:match("^تنزيل مطور @(.*)$")
 function Function_MERO(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Sudo:User", result.id_)
 Reply_Status(msg,result.id_,"reply","⋄︙تم تنزيله من المطورين")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
 return false
 end  
-if text and text:match("^حذف مطور (%d+)$") and DevMERO(msg) then
-local userid = text:match("^حذف مطور (%d+)$")
+if text and text:match("^تنزيل مطور (%d+)$") and DevMERO(msg) then
+local userid = text:match("^تنزيل مطور (%d+)$")
 database:srem(bot_id.."Sudo:User", userid)
 Reply_Status(msg,userid,"reply","⋄︙تم تنزيله من المطورين")  
 return false 
 end
 if text == "المالكين" and DevBot(msg) then
 local list = database:smembers(bot_id.."creator"..msg.chat_id_)
-t = "\n⋄︙قائمة المالكين \n — — — — — — — — — \n"
+t = "\n*⋄︙قائمة المالكين* \n*⊶─────≺⋆≻─────⊷*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."User:Name" .. v)
 if username then
-t = t..""..k.."- ([@"..username.."])\n"
+t = t..""..k.."↬𖣸 [@"..username.."]\n"
 else
 t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⋄︙لا يوجد مالكين"
+t = "*⋄︙لا يوجد مالكين*"
 end
 send(msg.chat_id_, msg.id_, t)
 return false
@@ -3048,7 +3048,7 @@ database:sadd(bot_id.."creator"..msg.chat_id_,admins[i].user_id_)
 end 
 end  
 end,nil)
-send(msg.chat_id_, msg.id_, "⋄︙تم مسح المالكين")
+send(msg.chat_id_, msg.id_, "*⋄︙تم مسح المالكين*")
 end
 if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
 function Function_MERO(extra, result, success)
@@ -3067,9 +3067,9 @@ send(msg.chat_id_,msg.id_,"⋄︙عذرا عزيزي المستخدم هاذا �
 return false 
 end      
 database:sadd(bot_id.."creator"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","?? : تم ترقيته مالك")  
+Reply_Status(msg,result.id_,"reply","⋄︙تم ترقيته مالك")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -3084,7 +3084,7 @@ end
 if text == ("تنزيل مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
 function Function_MERO(extra, result, success)
 database:srem(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⋄︙تم تنزيله من المالكين")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⋄︙تم تنزيله من المالكين*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_MERO, nil)
 return false
@@ -3096,7 +3096,7 @@ if result.id_ then
 database:srem(bot_id.."creator"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","⋄︙تم تنزيله من المالكين")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -3105,7 +3105,7 @@ end
 if text and text:match("^تنزيل مالك (%d+)$") and DevBot(msg) then  
 local userid = text:match("^تنزيل مالك (%d+)$") 
 database:srem(bot_id.."creator"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⋄︙تم تنزيله من المالكين")  
+Reply_Status(msg,userid,"reply","*⋄︙تم تنزيله من المالكين*")  
 return false
 end
 if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
@@ -3143,9 +3143,9 @@ send(msg.chat_id_,msg.id_,"⋄︙عذرا عزيزي المستخدم هاذا �
 return false 
 end      
 database:sadd(bot_id.."Basic:Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","?? : تم ترقيته منشئ اساسي")  
+Reply_Status(msg,result.id_,"reply","⋄︙تم ترقيته منشئ اساسي")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -3178,7 +3178,7 @@ return false
 end
 function Function_MERO(extra, result, success)
 database:srem(bot_id.."Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⋄︙تم تنزيله من المنشئين")  
+Reply_Status(msg,result.sender_user_id_,"reply","⋄︙تم تنزيله من الاساسين")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_MERO, nil)
 return false
@@ -3198,9 +3198,9 @@ function Function_MERO(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Basic:Constructor"..msg.chat_id_, result.id_)
 
-Reply_Status(msg,result.id_,"reply","⋄︙تم تنزيله من المنشئين")  
+Reply_Status(msg,result.id_,"reply","⋄︙تم تنزيله من الاساسين")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -3218,7 +3218,7 @@ return false
 end
 local userid = text:match("^تنزيل منشئ اساسي (%d+)$") 
 database:srem(bot_id.."Basic:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⋄︙تم تنزيله من المنشئين")  
+Reply_Status(msg,userid,"reply","⋄︙تم تنزيله من الاساسين")  
 return false
 end
 
@@ -3258,7 +3258,7 @@ end
 database:sadd(bot_id.."Constructor"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","⋄︙تم ترقيته منشئ في المجموعه")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -3281,7 +3281,7 @@ end
 if text and text:match("^تنزيل منشئ$") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then
 function Function_MERO(extra, result, success)
 database:srem(bot_id.."Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⋄︙تم تنزيله من المنشئين")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⋄︙تم تنزيله من المنشئين*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_MERO, nil)
 end
@@ -3300,9 +3300,9 @@ local username = text:match("^تنزيل منشئ @(.*)$")
 function Function_MERO(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⋄︙تم تنزيله من المنشئين")  
+Reply_Status(msg,result.id_,"reply","*⋄︙تم تنزيله من المنشئين*")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -3320,7 +3320,7 @@ return false
 end
 local userid = text:match("^تنزيل منشئ (%d+)$")
 database:srem(bot_id.."Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⋄︙تم تنزيله من المنشئين")  
+Reply_Status(msg,userid,"reply","*⋄︙تم تنزيله من المنشئين*")  
 end
 
 if text == ("رفع مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
@@ -3360,7 +3360,7 @@ end
 database:sadd(bot_id.."Manager"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","⋄︙تم ترقيته مدير المجموعه")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -3415,7 +3415,7 @@ if result.id_ then
 database:srem(bot_id.."Manager"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","⋄︙تم تنزيله من المدراء")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -3448,7 +3448,7 @@ end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⋄︙لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'*⋄︙لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين*')
 return false
 end
 function Function_MERO(extra, result, success)
@@ -3470,7 +3470,7 @@ return false
 end
 local username = text:match("^رفع ادمن @(.*)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⋄︙لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'*⋄︙لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين*')
 return false
 end
 function Function_MERO(extra, result, success)
@@ -3482,7 +3482,7 @@ end
 database:sadd(bot_id.."Mod:User"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","⋄︙تم ترقيته ادمن للمجموعه")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -3500,7 +3500,7 @@ return false
 end
 local userid = text:match("^رفع ادمن (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⋄︙لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'*⋄︙لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين*')
 return false
 end
 database:sadd(bot_id.."Mod:User"..msg.chat_id_, userid)
@@ -3540,7 +3540,7 @@ if result.id_ then
 database:srem(bot_id.."Mod:User"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","⋄︙تم تنزيله من ادمنيه المجموعه")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -3572,7 +3572,7 @@ end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⋄︙لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'*⋄︙لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين*')
 return false
 end
 function Function_MERO(extra, result, success)
@@ -3594,7 +3594,7 @@ return false
 end
 local username = text:match("^رفع مميز @(.*)$") 
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⋄︙لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'*⋄︙لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين*')
 return false
 end
 function Function_MERO(extra, result, success)
@@ -3606,7 +3606,7 @@ end
 database:sadd(bot_id.."Special:User"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","⋄︙تم ترقيته مميز للمجموعه")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -3625,7 +3625,7 @@ return false
 end
 local userid = text:match("^رفع مميز (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⋄︙لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'*⋄︙لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين*')
 return false
 end
 database:sadd(bot_id.."Special:User"..msg.chat_id_, userid)
@@ -3666,7 +3666,7 @@ if result.id_ then
 database:srem(bot_id.."Special:User"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","⋄︙تم تنزيله من المميزين")  
 else
-send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⋄︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
@@ -3788,7 +3788,7 @@ elseif MEROrt == "عضو" and Addictive(msg) then
 send(msg.chat_id_, msg.id_,"⋄︙العضو -› ["..result.title_.."](t.me/"..(text1[3] or "YYYDR")..")".."\n⋄︙تم رفعه "..text1[2].." هنا")   
 end
 else
-info = "⋄︙المعرف غلط"
+info = "*⋄︙المعرف غلط*"
 send(msg.chat_id_, msg.id_,info)
 end
 end
@@ -3826,7 +3826,7 @@ elseif MEROrt == "عضو" and Addictive(msg) then
 send(msg.chat_id_, msg.id_,"⋄︙العضو -› ["..result.title_.."](t.me/"..(text1[3] or "YYYDR")..")".."\n⋄︙تم تنريله من "..text1[2].." هنا")   
 end
 else
-info = "⋄︙المعرف غلط"
+info = "*⋄︙المعرف غلط*"
 send(msg.chat_id_, msg.id_,info)
 end
 end

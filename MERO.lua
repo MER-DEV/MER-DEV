@@ -9070,7 +9070,7 @@ if text =='مسح الثانويين ⋄' and DevBotsIs(msg) then
 send(msg.chat_id_, msg.id_,'⋄︙تم بالفعل مسح قائمه المطورين الثانوي .')
 database:del(bot_id.."TSudo:User")
 end
-if text =='⋄︙مسح الثانويين .' and not DevBotsIs(msg) then
+if text =='مسح الثانويين ⋄' and not DevBotsIs(msg) then
 send(msg.chat_id_, msg.id_,'⋄︙تسرسح .')
 end
 if text and database:get(bot_id..'na:Bots') then

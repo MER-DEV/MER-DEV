@@ -2605,24 +2605,24 @@ return false
 end
 if text == ("قائمه كتم عام") and DevMERO(msg) then
 local list = database:smembers(bot_id.."Gmute:User")
-t = "\n⋄︙قائمة المكتومين عام \n — — — — — — — — — \n"
+t = "\n*⋄︙قائمة المكتومين عام* \n*⊶─────≺⋆≻─────⊷*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."User:Name" .. v)
 if username then
-t = t..""..k.."- ([@"..username.."])\n"
+t = t..""..k.."↬𖣸 [@"..username.."]\n"
 else
 t = t..""..k.."- ("..v..")\n"
 end
 end
 if #list == 0 then
-t = "⋄︙لا يوجد مكتومين عام"
+t = "*⋄︙لا يوجد مكتومين عام*"
 end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
 if text == ("المطورين") and DevMERO(msg) then
 local list = database:smembers(bot_id.."Sudo:User")
-t = "\n⋄︙قائمة مطورين البوت \n — — — — — — — — — \n"
+t = "\n*⋄︙قائمة مطورين البوت* \n*⊶─────≺⋆≻─────⊷*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."User:Name" .. v)
 if username then
@@ -2632,23 +2632,23 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⋄︙لا يوجد مطورين"
+t = "*⋄︙لا يوجد مطورين*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
 if text == "المنشئين الاساسين" and creatorA(msg) then
 local list = database:smembers(bot_id.."Basic:Constructor"..msg.chat_id_)
-t = "\n⋄︙قائمة المنشئين الاساسين \n — — — — — — — — — \n"
+t = "\n*⋄︙قائمة المنشئين الاساسين* \n*⊶─────≺⋆≻─────⊷*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."User:Name" .. v)
 if username then
-t = t..""..k.."- ([@"..username.."])\n"
+t = t..""..k.."↬𖣸 [@"..username.."]\n"
 else
 t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⋄︙لا يوجد منشئين اساسيين"
+t = "*⋄︙لا يوجد منشئين اساسيين*"
 end
 send(msg.chat_id_, msg.id_, t)
 return false
@@ -2664,7 +2664,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Constructor"..msg.chat_id_)
-t = "\n⋄︙قائمة المنشئين \n — — — — — — — — — \n"
+t = "\n*⋄︙قائمة المنشئين* \n*⊶─────≺⋆≻─────⊷*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."User:Name" .. v)
 if username then
@@ -2674,7 +2674,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⋄︙لا يوجد منشئين"
+t = "*⋄︙لا يوجد منشئين*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -2689,17 +2689,17 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Manager"..msg.chat_id_)
-t = "\n⋄︙قائمة المدراء \n — — — — — — — — — \n"
+t = "\n*⋄︙قائمة المدراء* \n*⊶─────≺⋆≻─────⊷*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."User:Name" .. v)
 if username then
-t = t..""..k.."- ([@"..username.."])\n"
+t = t..""..k.."↬𖣸 [@"..username.."]\n"
 else
 t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⋄︙لا يوجد مدراء"
+t = "*⋄︙لا يوجد مدراء*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -2714,33 +2714,33 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Mod:User"..msg.chat_id_)
-t = "\n⋄︙قائمة الادمنيه \n — — — — — — — — — \n"
+t = "\n*⋄︙قائمة الادمنيه* \n*⊶─────≺⋆≻─────⊷*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."User:Name" .. v)
 if username then
-t = t..""..k.."- ([@"..username.."])\n"
+t = t..""..k.."↬𖣸 [@"..username.."]\n"
 else
 t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⋄︙لا يوجد ادمنيه"
+t = "*⋄︙لا يوجد ادمنيه*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
 if text == ("المميزين") and Addictive(msg) then
 local list = database:smembers(bot_id.."Special:User"..msg.chat_id_)
-t = "\n⋄︙قائمة مميزين المجموعه \n — — — — — — — — — \n"
+t = "\n*⋄︙قائمة مميزين المجموعه* \n*⊶─────≺⋆≻─────⊷*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."User:Name" .. v)
 if username then
-t = t..""..k.."- ([@"..username.."])\n"
+t = t..""..k.."↬𖣸 [@"..username.."]\n"
 else
 t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⋄︙لا يوجد مميزين"
+t = "*⋄︙لا يوجد مميزين*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -2755,17 +2755,17 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Muted:User"..msg.chat_id_)
-t = "\n⋄︙قائمة المكتومين \n — — — — — — — — — \n"
+t = "\n*⋄︙قائمة المكتومين* \n*⊶─────≺⋆≻─────⊷*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."User:Name" .. v)
 if username then
-t = t..""..k.."- ([@"..username.."])\n"
+t = t..""..k.."↬𖣸 [@"..username.."]\n"
 else
 t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⋄︙لا يوجد مكتومين"
+t = "*⋄︙لا يوجد مكتومين*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -2781,7 +2781,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."Ban:User"..msg.chat_id_)
-t = "\n⋄︙قائمة محظورين المجموعه \n — — — — — — — — — \n"
+t = "\n*⋄︙قائمة محظورين المجموعه* \n*⊶─────≺⋆≻─────⊷*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."User:Name" .. v)
 if username then
@@ -2791,7 +2791,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⋄︙لا يوجد محظورين"
+t = "*⋄︙لا يوجد محظورين*"
 end
 send(msg.chat_id_, msg.id_, t)
 end 

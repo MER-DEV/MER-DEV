@@ -8026,7 +8026,7 @@ end
 return false
 end
 if text == ("تحديث السورس") and DevMERO(msg) then  
-send(msg.chat_id_,msg.id_,'*⋄︙تم التحديث*')
+send(msg.chat_id_,msg.id_,'*⋄︙تم التحديث السورس بنجاح .*')
 os.execute('rm -rf MERO.lua')
 os.execute('rm -rf start.lua')
 os.execute('wget https://raw.githubusercontent.com/MER-DEV/MER-DEV/main/MERO.lua')

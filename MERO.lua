@@ -8612,7 +8612,7 @@ if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or tex
 Text = "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ sᴏᴜʀᴄᴇ ᴍᴇʀᴏ\n\n[-  ᴍᴇʀᴏ ᴄʜᴀɴɴᴇʟ  .](http://t.me/YYYDR)\n\n[-  ɪɴғᴏ sᴏᴜʀᴄᴇ .](http://t.me/YYYKU)\n\n[-  ᴍᴇʀᴏ ᴅᴇᴠᴇʟᴏᴘᴇʀ  .](http://t.me/FEEEM)\n\n[-  ʙᴏᴛ ᴍᴇʀᴏ .](http://t.me/FEEEM)"
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '⋄︙ᴍᴇʀᴏ sᴏᴜʀᴄʀ .',url="t.me/YYYDR"}},
+{{text = '- ᴍᴇʀᴏ sᴏᴜʀᴄʀ .',url="t.me/YYYDR"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/YYYDR&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -9887,7 +9887,8 @@ end
 end
 if Addictive(data) then  
 sender_match  = DAata:match("(%d+)")  
-get_database = DAata:gsub(data.sender_user_id_,'')
+get_r = DAata:gsub(sender_match,''):gsub("TR:",'')
+get_database = DAata:gsub(sender_match,'')
 if DAata and get_database:match("^Lock:(.*)$") then   
 if tonumber(data.sender_user_id_) == tonumber(sender_match) then
 if not database:get(bot_id..""..get_database..""..Chat_id) then ---not
@@ -9901,13 +9902,6 @@ database:set(bot_id..""..get_database..""..Chat_id,"ked")
 elseif database:get(bot_id..""..get_database..""..Chat_id)== "ked" then
 database:del(bot_id..""..get_database..""..Chat_id)  
 end ---notget
-if DAata and get_database:match("^TR:(.*)$") then   
-if not database:get(bot_id..get_database..Chat_id) then ---not
-database:set(bot_id..get_database..Chat_id,true) 
-elseif database:get(bot_id..get_database..Chat_id)== true then
-database:del(bot_id..get_database..Chat_id) 
-end ---notget
-end ---get_r
 if get_database == "flooding:settings" then
 if not database:hget(bot_id.."flooding:settings:"..Chat_id,"flood") then    
 database:hset(bot_id.."flooding:settings:"..Chat_id ,"flood","del")  
@@ -9921,6 +9915,13 @@ elseif database:hget(bot_id.."flooding:settings:"..Chat_id,"kick") == "kick" the
 database:hdel(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood")  
 end ---notget
 end ---get_database
+if DAata and get_database:match("^TR:(.*)$") then   
+if not database:get(bot_id..""..get_r..""..Chat_id) then ---not
+database:set(bot_id..""..get_r..""..Chat_id,true) 
+elseif database:get(bot_id..""..get_r..""..Chat_id)== true then
+database:del(bot_id..""..get_r..""..Chat_id) 
+end ---TR
+end ---get_r
 if database:get(bot_id.."Lock:text"..Chat_id) == true then
 te = "الدردشه : ❎ : بالمسح"
 else

@@ -1245,7 +1245,7 @@ if data.message_ == "CHAT_ADMIN_REQUIRED" then
 send(msg.chat_id_, msg.id_,"⋄︙ليس لدي صلاحية تغيير معلومات المجموعه يرجى المحاوله لاحقا") 
 database:del(bot_id.."Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
 else
-send(msg.chat_id_, msg.id_,"⋄︙تم تغيير صورة المجموعه") 
+send(msg.chat_id_, msg.id_,"*⋄︙تم تغيير صورة المجموعه*") 
 end
 end, nil) 
 database:del(bot_id.."Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
@@ -1254,38 +1254,38 @@ end
 --------------------------------------------------------------------------------------------------------------
 if database:get(bot_id.."Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then  
 if text == "الغاء" then 
-send(msg.chat_id_, msg.id_,"⋄︙تم الغاء وضع الوصف") 
+send(msg.chat_id_, msg.id_,"*⋄︙تم الغاء وضع الوصف*") 
 database:del(bot_id.."Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_)
 return false  
 end 
 database:del(bot_id.."Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
 https.request("https://api.telegram.org/bot"..token.."/setChatDescription?chat_id="..msg.chat_id_.."&description="..text) 
-send(msg.chat_id_, msg.id_,"⋄︙تم تغيير وصف المجموعه")   
+send(msg.chat_id_, msg.id_,"*⋄︙تم تغيير وصف المجموعه*")   
 return false  
 end 
 --------------------------------------------------------------------------------------------------------------
 if database:get(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text == "الغاء" then 
-send(msg.chat_id_, msg.id_,"⋄︙تم الغاء حفظ الترحيب") 
+send(msg.chat_id_, msg.id_,"*⋄︙تم الغاء حفظ الترحيب*") 
 database:del(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  
 end 
 database:del(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 database:set(bot_id.."Get:Welcome:Group"..msg.chat_id_,text) 
-send(msg.chat_id_, msg.id_,"⋄︙تم حفظ ترحيب المجموعه")   
+send(msg.chat_id_, msg.id_,"*⋄︙تم حفظ ترحيب المجموعه*")   
 return false   
 end
 --------------------------------------------------------------------------------------------------------------
 if database:get(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) then
 if text == "الغاء" then
-send(msg.chat_id_,msg.id_,"⋄︙تم الغاء حفظ الرابط")       
+send(msg.chat_id_,msg.id_,"*⋄︙تم الغاء حفظ الرابط*")       
 database:del(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) 
 return false
 end
 if text and text:match("(https://telegram.me/joinchat/%S+)") or text and text:match("(https://t.me/joinchat/%S+)") then     
 local Link = text:match("(https://telegram.me/joinchat/%S+)") or text:match("(https://t.me/joinchat/%S+)")   
 database:set(bot_id.."Private:Group:Link"..msg.chat_id_,Link)
-send(msg.chat_id_,msg.id_,"⋄︙تم حفظ الرابط بنجاح")       
+send(msg.chat_id_,msg.id_,"*⋄︙تم حفظ الرابط بنجاح*")       
 database:del(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_user_id_) 
 return false 
 end

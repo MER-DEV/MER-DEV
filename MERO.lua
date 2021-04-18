@@ -4936,13 +4936,13 @@ end
                         if textchuser then
                             send(msg.chat_id_, msg.id_, '[' .. textchuser .. ']')
                         else
-                            send(msg.chat_id_, msg.id_,'܂𓍼 : *عذراً* ، اشترك في قناة البوت اولاً ❕ .\n܂𓍼 : *قناة البوت* : [' ..database:get(bot_id .. 'add:ch:username') .. '] 💕❕.')
+                            send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⋄︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
                         end
                         return false
                     end
                     if msg.reply_to_message_id_ == 0 and Addictive(msg) then
                         send(msg.chat_id_, msg.id_,
-                            "܂⋄︙ارسل رابط المجموعه او رابط قناة المجموعه")
+                            "*⋄︙ارسل رابط المجموعه او رابط قناة المجموعه*")
                         database:setex(bot_id .. "Set:Priovate:Group:Link" .. msg.chat_id_ .. "" ..
                                            msg.sender_user_id_, 120, true)
                         return false
@@ -4960,7 +4960,7 @@ return false
 end
                     if Addictive(msg) then
                         database:set(bot_id .. "Link_Group" .. msg.chat_id_, true)
-                        send(msg.chat_id_, msg.id_, "܂⋄︙تم تفعيل جلب الرابط المجموعه")
+                        send(msg.chat_id_, msg.id_, "*⋄︙تم تفعيل جلب الرابط المجموعه*")
                         return false
                     end
                 end
@@ -4976,7 +4976,7 @@ return false
 end
                     if Addictive(msg) then
                         database:del(bot_id .. "Link_Group" .. msg.chat_id_)
-                        send(msg.chat_id_, msg.id_, "܂⋄︙تم تعطيل جلب رابط المجموعه")
+                        send(msg.chat_id_, msg.id_, "*⋄︙تم تعطيل جلب رابط المجموعه*")
                         return false
                     end
                 end
@@ -4993,20 +4993,20 @@ return false
 end
                     local status_Link = database:get(bot_id .. "Link_Group" .. msg.chat_id_)
                     if not status_Link then
-                        send(msg.chat_id_, msg.id_, "܂⋄︙جلب الرابط معطل")
+                        send(msg.chat_id_, msg.id_, "*⋄︙جلب الرابط معطل اكتب تفعيل الرابط*")
                         return false
                     end
                     local link = database:get(bot_id .. "Private:Group:Link" .. msg.chat_id_)
                     if link then
-                        send(msg.chat_id_, msg.id_, '܂⋄︙رابط المجموعة ~\n [' .. link .. ']')
+                        send(msg.chat_id_, msg.id_, '*⋄︙رابط المجموعة ~*\n [' .. link .. ']')
                     else
                         local linkgpp = json:decode(https.request(
                                                         'https://api.telegram.org/bot' .. token ..
                                                             '/exportChatInviteLink?chat_id=' .. msg.chat_id_))
                         if linkgpp.ok == true then
-                            linkgp = '܂⋄︙رابط المجموعة ~\n [' .. linkgpp.result .. ']'
+                            linkgp = '*⋄︙رابط المجموعة ~*\n [' .. linkgpp.result .. ']'
                         else
-                            linkgp = '܂⋄︙لا يوجد رابط ارسل ضع رابط'
+                            linkgp = '*⋄︙لا يوجد رابط ارسل ضع رابط*'
                         end
                         send(msg.chat_id_, msg.id_, linkgp)
                     end
@@ -5022,7 +5022,7 @@ end
 return false
 end
                     if Addictive(msg) then
-                        send(msg.chat_id_, msg.id_, "܂⋄︙تم مسح الرابط ")
+                        send(msg.chat_id_, msg.id_, "*⋄︙تم مسح رابط المجموعه* ")
                         database:del(bot_id .. "Private:Group:Link" .. msg.chat_id_)
                         return false
                     end
@@ -7737,7 +7737,7 @@ end
 return false
 end   
 database:del(bot_id.."Lock:Games"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"\n⋄︙تم تعطيل الالعاب") 
+send(msg.chat_id_, msg.id_,"\n*⋄︙تم تعطيل الالعاب*") 
 end
 if text == "تفعيل الالعاب" and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -7750,7 +7750,7 @@ end
 return false
 end  
 database:set(bot_id.."Lock:Games"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,"\n⋄︙تم تفعيل الالعاب") 
+send(msg.chat_id_, msg.id_,"\n*⋄︙تم تفعيل الالعاب*") 
 end
 if text == 'الالعاب' then  
 if AddChannel(msg.sender_user_id_) == false then

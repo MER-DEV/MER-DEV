@@ -1238,11 +1238,11 @@ photo_id = msg.content_.photo_.sizes_[0].photo_.persistent_id_
 end 
 tdcli_function ({ID = "ChangeChatPhoto",chat_id_ = msg.chat_id_,photo_ = getInputFile(photo_id) }, function(arg,data)   
 if data.code_ == 3 then
-send(msg.chat_id_, msg.id_,"⋄︙عذرا البوت ليس ادمن يرجى ترقيتي والمحاوله لاحقا") 
+send(msg.chat_id_, msg.id_,"*⋄︙عذرا البوت ليس ادمن يرجى ترقيتي والمحاوله لاحقا*") 
 database:del(bot_id.."Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
 return false  end
 if data.message_ == "CHAT_ADMIN_REQUIRED" then 
-send(msg.chat_id_, msg.id_,"⋄︙ليس لدي صلاحية تغيير معلومات المجموعه يرجى المحاوله لاحقا") 
+send(msg.chat_id_, msg.id_,"*⋄︙ليس لدي صلاحية تغيير معلومات المجموعه يرجى المحاوله لاحقا*") 
 database:del(bot_id.."Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
 else
 send(msg.chat_id_, msg.id_,"*⋄︙تم تغيير صورة المجموعه*") 
@@ -1406,7 +1406,7 @@ end
 if text and not Vips(msg) then  
 local MERO_Msg = database:sismember(bot_id.."List:Filter:text"..msg.chat_id_,text) 
 if MERO_Msg then    
-Reply_Status(msg,msg.sender_user_id_,"reply","⋄︙الكلمه ممنوعه من المجموعه")  
+Reply_Status(msg,msg.sender_user_id_,"reply","*⋄︙الكلمه ممنوعه من المجموعه*")  
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
 return false
 end
@@ -1414,7 +1414,7 @@ end
 if msg.content_.ID == 'MessageAnimation' and not Vips(msg) then      
 local geAni = database:sismember(bot_id.."List:Filter:Animation"..msg.chat_id_,msg.content_.animation_.animation_.persistent_id_) 
 if geAni then        
-Reply_Status(msg,msg.sender_user_id_,"reply","⋄︙المتحركه ممنوعه من المجموعه")  
+Reply_Status(msg,msg.sender_user_id_,"reply","*⋄︙المتحركه ممنوعه من المجموعه*")  
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
 return false
 end
@@ -1422,7 +1422,7 @@ end
 if msg.content_.ID == 'MessageSticker' and not Vips(msg) then      
 local ker = database:sismember(bot_id.."List:Filter:Sticker"..msg.chat_id_,msg.content_.sticker_.sticker_.persistent_id_) 
 if ker then        
-Reply_Status(msg,msg.sender_user_id_,"reply","⋄︙الملصق ممنوع من المجموعه")  
+Reply_Status(msg,msg.sender_user_id_,"reply","*⋄︙الملصق ممنوع من المجموعه*")  
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
 return false
 end
@@ -1430,7 +1430,7 @@ end
 if msg.content_.ID == 'MessagePhoto' and not Vips(msg) then      
 local phh = database:sismember(bot_id.."List:Filter:Photo"..msg.chat_id_,msg.content_.photo_.sizes_[1].photo_.persistent_id_) 
 if phh then        
-Reply_Status(msg,msg.sender_user_id_,"reply","⋄︙الصوره ممنوعه من المجموعه")  
+Reply_Status(msg,msg.sender_user_id_,"reply","*⋄︙الصوره ممنوعه من المجموعه*")  
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
 return false
 end
@@ -1448,7 +1448,7 @@ return false
 end 
 if text and database:get(bot_id.."Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_) == "true" then
 database:set(bot_id.."Set:Cmd:Group:New"..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_,"⋄︙ارسل الامر الجديد")  
+send(msg.chat_id_, msg.id_,"*⋄︙ارسل الامر الجديد*")  
 database:del(bot_id.."Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_)
 database:set(bot_id.."Set:Cmd:Group1"..msg.chat_id_..":"..msg.sender_user_id_,"true1") 
 return false
@@ -1457,7 +1457,7 @@ if text and database:get(bot_id.."Set:Cmd:Group1"..msg.chat_id_..":"..msg.sender
 local NewCmd = database:get(bot_id.."Set:Cmd:Group:New"..msg.chat_id_)
 database:set(bot_id.."Set:Cmd:Group:New1"..msg.chat_id_..":"..text,NewCmd)
 database:sadd(bot_id.."List:Cmd:Group:New"..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_,"⋄︙تم حفظ الامر")  
+send(msg.chat_id_, msg.id_,"*⋄︙تم حفظ الامر*")  
 database:del(bot_id.."Set:Cmd:Group1"..msg.chat_id_..":"..msg.sender_user_id_)
 return false
 end
@@ -7364,7 +7364,7 @@ name = string.gsub(name,"حاسوب","س ا ح و ب")
 name = string.gsub(name,"انترنيت","ا ت ن ر ن ي ت")
 name = string.gsub(name,"ساحه","ح ا ه س")
 name = string.gsub(name,"جسر","ر ج س")
-send(msg.chat_id_, msg.id_,"⋄︙اسرع واحد يرتبها ~ {"..name.."}")
+send(msg.chat_id_, msg.id_,"*⋄︙اسرع واحد يرتبها ~ {"..name.."}*")
 return false
 end
 end
@@ -8785,7 +8785,7 @@ end
 return false
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,'⋄︙البوت ليس ادمن يرجى ترقيتي !') 
+send(msg.chat_id_, msg.id_,'*⋄︙البوت ليس ادمن يرجى ترقيتي !*') 
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
@@ -10184,6 +10184,7 @@ local Teext =[[
 *⋄ تنظيف + عدد*
  ﹎﹎﹎﹎﹎﹎﹎﹎﹎﹎
 *⋄ تفعيل/تعطيل الرفع*
+*⋄ تفعيل/تعطيل ضافني*
 *⋄ تفعيل/تعطيل الايدي*
 *⋄ تفعيل/تعطيل الابراج*
 *⋄ تفعيل/تعطيل اطردني*

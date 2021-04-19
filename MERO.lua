@@ -9243,12 +9243,21 @@ send(msg.chat_id_, msg.id_,"⋄︙ارسل لي التوجيه الان")
 return false
 end 
 if text=="اذاعه بالتثبيت" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
-if database:get(bot_id.."Status:Bc") and not DevMERO(msg) then 
-send(msg.chat_id_, msg.id_,"⋄︙الاذاعه معطله من قبل المطور الاساسي")
+if database:get(bot_id..'Bc:Bots') and not DevMERO(msg) then 
+send(msg.chat_id_, msg.id_,'⋄︙الاذاعه معطله من قبل المطور الاساسي')
+return false
+end
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⋄︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
 database:setex(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"*⋄︙ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }*\n*⋄︙للخروج ارسل الغاء* ") 
+send(msg.chat_id_, msg.id_,"⋄︙ارسل لي سواء ↫ { ملصق, متحركه, صوره, رساله }\n⋄︙للخروج ارسل الغاء ") 
 return false
 end  
 if text == "تفعيل الاذاعه ⋄" then
@@ -10313,6 +10322,7 @@ local Teext =[[
 *⋄ اذاعه *
 *⋄ رفع منشئ *
 *⋄ اذاعه خاص *
+*⋄ اذاعه بالتثبيت*
 *⋄ الاحصائيات *
 *⋄ غادر + الايدي*
 *⋄ تفعيل /تعطيل*

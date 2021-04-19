@@ -8867,6 +8867,7 @@ local keyboard = {
 {'تفعيل البوت الخدمي ⋄','تعطيل البوت الخدمي ⋄'},
 {'تفعيل الاذاعه ⋄','تعطيل الاذاعه ⋄'},
 {'اذاعه خاص ⋄','اذاعه ⋄'},
+{'اذاعه بالتثبيت ⋄'},
 {'اذاعه بالتوجيه ⋄','اذاعه بالتوجيه خاص ⋄'},
 {'تفعيل المغادره ⋄','تعطيل المغادره ⋄'},
 {'المطورين ⋄','مسح المطورين ⋄'},
@@ -9241,6 +9242,15 @@ database:setex(bot_id.."Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 6
 send(msg.chat_id_, msg.id_,"⋄︙ارسل لي التوجيه الان") 
 return false
 end 
+if text=="اذاعه بالتثبيت" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
+if database:get(bot_id.."Status:Bc") and not DevMERO(msg) then 
+send(msg.chat_id_, msg.id_,"⋄︙الاذاعه معطله من قبل المطور الاساسي")
+return false
+end
+database:setex(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+send(msg.chat_id_, msg.id_,"*⋄︙ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }*\n*⋄︙للخروج ارسل الغاء* ") 
+return false
+end  
 if text == "تفعيل الاذاعه ⋄" then
 database:del(bot_id.."Status:Bc") 
 send(msg.chat_id_, msg.id_,"\n⋄︙تم تفعيل الاذاعه " ) 

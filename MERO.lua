@@ -119,7 +119,7 @@ end
 end
 function cleaner(msg)
 local hash = database:sismember(bot_id.."MERO:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Bot(msg) or DevMERO(msg) or DevBot(msg) or Owner(msg) or VIP_DeV(msg) then        
+if hash or Bot(msg) or DevMERO(msg) or DevBot(msg) or BasicConstructor(msg) or VIP_DeV(msg) then  
 return true    
 else    
 return false    

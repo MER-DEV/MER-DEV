@@ -117,6 +117,14 @@ else
 return false    
 end 
 end
+function cleaner(msg)
+local hash = database:sismember(bot_id.."MERO:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
+if hash or Bot(msg) or DevMERO(msg) or DevBot(msg) or Owner(msg) or VIP_DeV(msg) then        
+return true    
+else    
+return false    
+end 
+end
 function Vips(msg)
 local hash = database:sismember(bot_id.."Special:User"..msg.chat_id_,msg.sender_user_id_) 
 if hash or Bot(msg) or  DevMERO(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or DevBotsIs(msg) or creatorA(msg) then             
@@ -187,6 +195,8 @@ elseif database:sismember(bot_id.."Manager"..chat_id, user_id) then
 var = database:get(bot_id.."Manager:Rd"..chat_id) or "المدير"  
 elseif database:sismember(bot_id.."Mod:User"..chat_id, user_id) then
 var = database:get(bot_id.."Mod:Rd"..chat_id) or "الادمن"  
+elseif database:sismember(bot_id.."MERO:MN:TF"..chat_id, user_id) then
+var =  "منظف"  
 elseif database:sismember(bot_id.."Special:User"..chat_id, user_id) then  
 var = database:get(bot_id.."Special:Rd"..chat_id) or "المميز"  
 else  
@@ -5028,46 +5038,34 @@ end
                     end
                     return false
                 end
-if text == "امسح" and Owner(msg) then
-msgm = {[0]=msg.id_}
-local Message = msg.id_
-for i=1,200 do
-Message = Message - 1048576
-msgm[i] = Message
-end
-tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = msgm},function(arg,data)
-new = 0
-msgm2 = {}
-for i=0 ,data.total_count_ do
-if data.messages_[i] and data.messages_[i].content_ and data.messages_[i].content_.ID ~= "MessageText" then
-msgm2[new] = data.messages_[i].id_
-new = new + 1
+if text == ("امسح") and cleaner(msg) then  
+local list = database:smembers(bot_id.."MERO:allM"..msg.chat_id_)
+for k,v in pairs(list) do
+local Message = v
+if Message then
+t = "*⋄︙تم مسح "..k.." من الوسائط الموجوده*"
+DeleteMessage(msg.chat_id_,{[0]=Message})
+database:del(bot_id.."MERO:allM"..msg.chat_id_)
 end
 end
-DeleteMessage(msg.chat_id_,msgm2)
-end,nil)  
-send(msg.chat_id_, msg.id_,"*تم تنظيف الميديا بنجاح ⋄*")
+if #list == 0 then
+t = "*⋄︙لا يوجد ميديا في المجموعه*"
 end
-if text == "امسح" and Owner(msg) then
-Msgs = {[0]=msg.id_}
-local Message = msg.id_
-for i=1,200 do
-Message = Message - 1048576
-Msgs[i] = Message
+send(msg.chat_id_, msg.id_, t)
 end
-tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data)
-new = 0
-Msgs2 = {}
-for i=0 ,data.total_count_ do
-if data.messages_[i] and (not data.messages_[i].edit_date_ or data.messages_[i].edit_date_ ~= 0) then
-Msgs2[new] = data.messages_[i].id_
-new = new + 1
+if text == ("عدد الميديا") and cleaner(msg) then  
+local num = database:smembers(bot_id.."MERO:allM"..msg.chat_id_)
+for k,v in pairs(num) do
+local numl = v
+if numl then
+l = "*⋄︙عدد الميديا الموجود هو *"..k
 end
 end
-DeleteMessage(msg.chat_id_,Msgs2)
-end,nil)  
-send(msg.chat_id_, msg.id_,'*⋄ تم تنظيف الميديا المعدله*')
-end                
+if #num == 0 then
+l = "*⋄︙لا يوجد ميديا في المجموعه*"
+end
+send(msg.chat_id_, msg.id_, l)
+end
 if text and text:match("^ضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^وضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -5539,6 +5537,126 @@ send(msg.chat_id_, msg.id_,"*⋄︙ارسل الامر الذي قم بوضعه 
 return false
 end
 end
+if text == ("رفع منظف") and Owner(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⋄︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'*⋄︙لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين*')
+return false
+end
+function Function_MERO(extra, result, success)
+database:sadd(bot_id.."MERO:MN:TF"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","⋄︙تم ترقيته منظف للمجموعه")  
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = Owner(msg.reply_to_message_id_)}, Function_MERO, nil)
+return false
+end
+if text and text:match("^رفع منظف @(.*)$") and BasicConstructor(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⋄︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local username = text:match("^رفع منظف @(.*)$")
+function Function_MERO(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"⋄︙عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end      
+database:sadd(bot_id.."MERO:MN:TF"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","⋄︙تم ترقيته منظف للمجموعه")  
+else
+send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
+return false
+end
+if text and text:match("^رفع منظف (%d+)$") and BasicConstructor(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⋄︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local userid = text:match("^رفع منظف (%d+)$")
+if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'⋄︙لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+return false
+end
+database:sadd(bot_id.."MERO:MN:TF"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","⋄︙تم ترقيته منظف للمجموعه")  
+return false
+end
+if text == ("تنزيل منظف") and Owner(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⋄︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+function Function_MERO(extra, result, success)
+database:srem(bot_id.."MERO:MN:TF"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","⋄︙تم تنزيله من منظفيه المجموعه")  
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = Owner(msg.reply_to_message_id_)}, Function_MERO, nil)
+return false
+end
+if text and text:match("^تنزيل منظف @(.*)$") and BasicConstructor(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⋄︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local username = text:match("^تنزيل منظف @(.*)$") 
+function Function_MERO(extra, result, success)
+if result.id_ then
+database:srem(bot_id.."MERO:MN:TF"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","⋄︙تم تنزيله من منظفيه المجموعه")  
+else
+send(msg.chat_id_, msg.id_,"⋄︙لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_MERO, nil)
+return false
+end
+if text and text:match("^تنزيل منظف (%d+)$") and BasicConstructor(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⋄︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local userid = text:match("^تنزيل منظف (%d+)$")
+database:srem(bot_id.."MERO:MN:TF"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","⋄︙تم تنزيله من منظفيه المجموعه")  
+return false
+end
 if text == "الصلاحيات" and Addictive(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -5564,6 +5682,44 @@ t = t..""..k.."- "..v.."\n"
 end
 end
 send(msg.chat_id_, msg.id_,t)
+end
+if text == "مسح المنظفين" and Owner(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⋄︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+database:del(bot_id.."MERO:MN:TF"..msg.chat_id_)
+send(msg.chat_id_, msg.id_, "*⋄︙تم مسح  قائمة المنظفين*  ")
+end
+if text == ("المنظفين") and Owner(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⋄︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⋄︙قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local list = database:smembers(bot_id.."MERO:MN:TF"..msg.chat_id_)
+t = "\n*⋄︙قائمة المنظفين* \n*⊶─────≺⋆≻─────⊷*\n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."MERO:User:Name" .. v)
+if username then
+t = t..""..k.."↬𖣸 [@"..username.."]\n"
+else
+t = t..""..k.."- (`"..v.."`)\n"
+end
+end
+if #list == 0 then
+t = "*⋄︙لا يوجد منظفين*"
+end
+send(msg.chat_id_, msg.id_, t)
 end
 if text == "مسح الصلاحيات" then
 local list = database:smembers(bot_id.."Coomds"..msg.chat_id_)
@@ -5690,7 +5846,7 @@ send(msg.chat_id_, msg.id_,"*⋄︙تم مسح ردود المدير*")
 end
 if text == ("ردود المدير") and Owner(msg) then
 local list = database:smembers(bot_id.."List:Manager"..msg.chat_id_.."")
-text = "*⋄︙قائمه ردود المدير* \n*⊶─────≺⋆≻─────⊷*\n"
+text = "⋄︙قائمه ردود المدير \n⊶─────≺⋆≻─────⊷\n"
 for k,v in pairs(list) do
 if database:get(bot_id.."Add:Rd:Manager:Gif"..v..msg.chat_id_) then
 db = "متحركه 🎭"
@@ -5712,7 +5868,7 @@ end
 text = text..""..k..">> ("..v..") ↫ {"..db.."}\n"
 end
 if #list == 0 then
-text = "*⋄︙لا يوجد ردود للمدير*"
+text = "⋄︙لا يوجد ردود للمدير"
 end
 send(msg.chat_id_, msg.id_,"["..text.."]")
 end

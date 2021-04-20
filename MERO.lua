@@ -10759,20 +10759,7 @@ end
 end
 end
 if (data.ID == "UpdateOption" and data.value_.value_ == "Ready") then
-print("\27[34m"..[[
->> The Bot is Running
-
->> Installation information
-
-User :: ]]..User..[[
-
-IP :: ]]..IP..[[
-
-name :: ]]..name..[[
-
-port :: ]]..port..[[
-
-time ::]]..Rtime.."\27[m")
+print('\27[30;32m»» يرجى الاننتضار لحين تنظيف المجموعات الوهميه ««\n\27[1;37m')
 local list = database:smembers(bot_id..'UsersBot')  
 for k,v in pairs(list) do 
 tdcli_function({ID='GetChat',chat_id_ = v},function(arg,data) end,nil) 
@@ -10791,7 +10778,7 @@ if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ a
 database:srem(bot_id..'Chek:Groups',v)  
 end
 if data and data.code_ and data.code_ == 400 then
-database:srem(bot_id..'Chek:Groups',v)  
+database:srem(bot_id..'Chek:Groups',v)   
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusEditor" then
 database:sadd(bot_id..'Chek:Groups',v)  
